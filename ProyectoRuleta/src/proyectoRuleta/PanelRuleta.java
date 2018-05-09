@@ -23,7 +23,7 @@ public class PanelRuleta extends JPanel {
 	int[] arr = {0,9,20,29,39,49,59,69,79,88,98,107,117,127,147,
 			156,166,176,185,195,205,215,223,233,243,253,263,
 			273,283,293,303,313,322,332,341,351};
-	
+
 	int [] casillas = {	0,26,3,35,12,28,7,29,18,22,9,3,14,20,33,16,
 			24,5,10,23,8,30,11,36,13,27,6,34,17,25,2,21,4,19,15,32};
 	private Timer tempo;
@@ -64,9 +64,9 @@ public class PanelRuleta extends JPanel {
 	 * i =  322 casilla 4
 	 * i =  332 casilla 19
 	 * i =  341 casilla 15
-	 * i =  351 casilla 32          
+	 * i =  351 casilla 32
 	 */
-	
+
 	//variable que aloja el angulo que esta en el arreglo arr
 	private int posicionFinal=0;
 	// variable que aloja el la posicion en el arreglo casillas
@@ -75,19 +75,22 @@ public class PanelRuleta extends JPanel {
 	private int casillaGanadora=0;
 	//iterador que ira aumentando para facilitar el repaint de la img.
 	private int iteradorImagen=0;
-	
-	public int posiciones(int iterador) {		
+
+	private int timeRuleta = 400;
+	private Thread timerThread;
+
+	public int posiciones(int iterador) {
 
 			posicionFinal=arr[iterador%arr.length];
-			
+
 			return posicionFinal;
 		}
-	
+
 	public void setCasillaGanadora(int n) {
-	
+
 			casillaGanadora = casillas[n];
 	}
-	
+
 
 	BufferedImage cargarImagen(String ruta) {
 		BufferedImage img =null;
@@ -95,10 +98,10 @@ public class PanelRuleta extends JPanel {
 			img = ImageIO.read(new File(ruta));
 		}catch(IOException e) {
 			System.out.println("Error al Cargar la imagen");
-		}	
+		}
 		return img;
 	}
-	
+
 	public int getPosicionFinal() {
 		return posicionFinal;
 		}
@@ -111,46 +114,78 @@ public class PanelRuleta extends JPanel {
 	public void setPosicionPausa(int n) {
 		posPausa=n;
 	}
-	
+
 	public int getCasillaGanadora() {
 		return casillaGanadora;
 	}
-	
+
 	public void setRuletaGirando(boolean booleano) {
 		ruletaGirando=booleano;
 	}
-	
+
 	public void paintComponent(Graphics g) {
-		
+
 		// se cargan las imagenes
 		BufferedImage ruleta = cargarImagen("src/imagenes/Ruleta.png");
 		BufferedImage flecha = cargarImagen("src/imagenes/Flecha.png");
-		
+
 		//posicion en la que se ubicara la imagen a rotar
 		AffineTransform at = AffineTransform.getTranslateInstance(50, 50);
-		
+
 		//el metodo posiciones devuelve el entero (angulo) en la posicion iteradorimagen ,
-		
+
 		at.rotate(Math.toRadians(posiciones(iteradorImagen++)),ruleta.getWidth()/2,ruleta.getHeight()/2);
 		this.posPausa=iteradorImagen%arr.length;
 		this.casillaGanadora= casillas[posPausa];
 		Graphics2D ruleta2D=(Graphics2D) g;
-		
+
 		ruleta2D.setColor(Color.GREEN.darker());
-	
+
 		ruleta2D.fillRect(0, 0, this.getWidth(), this.getHeight());
-		 
+
 		ruleta2D.drawImage(ruleta, at, null);
 		ruleta2D.drawImage(flecha, 275, 85,50,50,this);
-	
-		// este metodo propio de la clase graphics2D es el que refresca el panel y 
+
+		// este metodo propio de la clase graphics2D es el que refresca el panel y
 		//"hace girar la imagen"(repaint)
 		if(ruletaGirando==true) {
-			repaint();
-		}
-		 
-	}
-	
-		
 
+		}
+	}
+
+	public void girarRuleta(){
+		System.out.println("Entre a girarRuleta");
+		RondaNueva ronda = new RondaNueva();
+		ronda.start();
+	}
+
+	private class RondaNueva implements Runnable{
+
+		/* (non-Javadoc)
+		 * @see java.lang.Runnable#run()
+		 */
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			try{
+				System.out.println("comienza a girar la ruleta en PanelRuleta");
+				while(timeRuleta>0){
+					timeRuleta-=1;
+					repaint();
+					Thread.sleep(10);
+					setRuletaGirando(false);
+				}
+				System.out.println(getPosicionPausa()+"++");
+				System.out.println(getCasillaGanadora());
+				System.out.println(getPosicionPausa()+"++");
+			}catch(InterruptedException e) {
+				return;
+			}
+		}
+
+		public void start() {
+			timerThread = new Thread(this);
+			timerThread.start();
+		}
+	}
 }
