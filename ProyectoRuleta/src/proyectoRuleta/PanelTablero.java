@@ -1378,6 +1378,141 @@ public class PanelTablero extends JPanel {
 		}
 	}
 
+	private void setApuesta05X1(String apuesta){
+		if(apuesta == "docena1y2"){
+			for(int i = 1; i <= 24; i++){
+				System.out.println("[debug] apuesta docena1y2:"+i);
+				apuesta05X1.add(i);
+			}
+		}
+
+		if(apuesta == "docena2y3"){
+			for(int i = 13; i <= 36; i++){
+				System.out.println("[debug] apuesta docena2y3:"+i);
+				apuesta05X1.add(i);
+			}
+		}
+
+		if(apuesta == "columna1y2" ){
+			for(int i = 1; i <= 35; i++){
+				if(i%3 != 0){
+					System.out.println("[debug] apuesta columna1y2:"+i);
+					apuesta05X1.add(i);
+				}
+			}
+		}
+
+		if(apuesta == "columna2y3" ){
+			apuesta05X1.add(2);
+			apuesta05X1.add(3);
+			apuesta05X1.add(5);
+			apuesta05X1.add(6);
+			apuesta05X1.add(8);
+			apuesta05X1.add(9);
+			apuesta05X1.add(11);
+			apuesta05X1.add(12);
+			apuesta05X1.add(14);
+			apuesta05X1.add(15);
+			apuesta05X1.add(17);
+			apuesta05X1.add(18);
+			apuesta05X1.add(20);
+			apuesta05X1.add(21);
+			apuesta05X1.add(23);
+			apuesta05X1.add(24);
+			apuesta05X1.add(26);
+			apuesta05X1.add(27);
+			apuesta05X1.add(29);
+			apuesta05X1.add(30);
+			apuesta05X1.add(32);
+			apuesta05X1.add(33);
+			apuesta05X1.add(35);
+			apuesta05X1.add(36);
+		}
+	}
+
+	private void setApuesta5X1(String apuesta){
+		if(apuesta == "seisena1"){
+			for (int i = 1; i <=6 ;i++ ) {
+				System.out.println("[debug] apuesta seisena1: "+i);
+				apuesta5X1.add(i);
+			}
+		}
+
+		if(apuesta == "seisena2"){
+			for (int i = 4; i <=9 ;i++ ) {
+				System.out.println("[debug] apuesta seisena2: "+i);
+				apuesta5X1.add(i);
+			}
+		}
+
+		if(apuesta == "seisena3"){
+			for (int i = 7; i <=12 ;i++ ) {
+				System.out.println("[debug] apuesta seisena3: "+i);
+				apuesta5X1.add(i);
+			}
+		}
+
+		if(apuesta == "seisena4"){
+			for (int i = 10; i <=15 ;i++ ) {
+				System.out.println("[debug] apuesta seisena4: "+i);
+				apuesta5X1.add(i);
+			}
+		}
+
+		if(apuesta == "seisena5"){
+			for (int i = 13; i <=18 ;i++ ) {
+				System.out.println("[debug] apuesta seisena5: "+i);
+				apuesta5X1.add(i);
+			}
+		}
+
+		if(apuesta == "seisena6"){
+			for (int i = 16; i <=21 ;i++ ) {
+				System.out.println("[debug] apuesta seisena6: "+i);
+				apuesta5X1.add(i);
+			}
+		}
+
+		if(apuesta == "seisena7"){
+			for (int i = 19; i <=24 ;i++ ) {
+				System.out.println("[debug] apuesta seisena7: "+i);
+				apuesta5X1.add(i);
+			}
+		}
+
+		if(apuesta == "seisena8"){
+			for (int i = 22; i <=27 ;i++ ) {
+				System.out.println("[debug] apuesta seisena8: "+i);
+				apuesta5X1.add(i);
+			}
+		}
+
+		if(apuesta == "seisena9"){
+			for (int i = 25; i <=30 ;i++ ) {
+				System.out.println("[debug] apuesta seisena9: "+i);
+				apuesta5X1.add(i);
+			}
+		}
+
+		if(apuesta == "seisena10"){
+			for (int i = 28; i <=33 ;i++ ) {
+				System.out.println("[debug] apuesta seisena10: "+i);
+				apuesta5X1.add(i);
+			}
+		}
+
+		if(apuesta == "seisena11"){
+			for (int i = 31; i <=36 ;i++ ) {
+				System.out.println("[debug] apuesta seisena11: "+i);
+				apuesta5X1.add(i);
+			}
+		}
+	}
+
+	private void setApuesta8X1(String apuesta){
+
+	}
+
 	/**
 	 *Retorna las apuestas 1x1 que hay en el tablero
 	 */
@@ -1387,6 +1522,14 @@ public class PanelTablero extends JPanel {
 
 	public ArrayList<Integer> getApuesta2X1(){
 		return apuesta2X1;
+	}
+
+	public ArrayList<Integer> getApuesta05X1(){
+		return apuesta05X1;
+	}
+
+	public ArrayList<Integer> getApuesta5X1(){
+		return apuesta5X1;
 	}
 
 	private class MouseEvents implements MouseListener{
@@ -1406,6 +1549,43 @@ public class PanelTablero extends JPanel {
 			//Apuestas 2X1
 			if(button == "primera12na" || button == "segunda12na" || button == "tercera12na" || button == "columna1" || button == "columna2" || button == "columna3"){
 				setApuestas2X1(button);
+			}
+
+			//Apuestas 05X1
+			if(button == "docena1y2" || button == "docena2y3" || button == "columna1y2" || button == "columna2y3" ){
+				setApuesta05X1(button);
+			}
+
+			//Apuestas 5X1
+			if(button == "seisena1" || button == "seisena2" || button == "seisena3" || button == "seisena4" || button == "seisena5" || button == "seisena6" || button == "seisena7" || button == "seisena8" || button == "seisena9" || button == "seisena10" || button == "seisena11"){
+				setApuesta5X1(button);
+			}
+
+			//Apuesta 8X1
+			if(button == "casilla1_2_4_5" ||
+				 button == "casilla2_3_5_6" ||
+				 button == "casilla4_5_7_8" ||
+				 button == "casilla5_6_8_9" ||
+				 button == "casilla7_8_10_11" ||
+				 button == "casilla8_9_11_12" ||
+				 button == "casilla10_11_13_14" ||
+				 button == "casilla11_12_14_15" ||
+				 button == "casilla13_14_16_17" ||
+				 button == "casilla14_15_17_18" ||
+				 button == "casilla16_17_19_20" ||
+				 button == "casilla17_18_20_21" ||
+				 button == "casilla19_20_22_23" ||
+				 button == "casilla20_21_23_24" ||
+				 button == "casilla22_23_25_26" ||
+				 button == "casilla23_24_26_27" ||
+				 button == "casilla25_26_28_29" ||
+				 button == "casilla26_27_29_30" ||
+				 button == "casilla28_29_31_32" ||
+				 button == "casilla29_30_32_33" ||
+				 button == "casilla31_32_34_35" ||
+				 button == "casilla32_33_35_36"
+				){
+					setApuesta8X1(button);
 			}
 		}
 
