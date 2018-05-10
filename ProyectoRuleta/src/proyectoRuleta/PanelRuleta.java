@@ -139,7 +139,7 @@ public class PanelRuleta extends JPanel {
 		this.casillaGanadora= casillas[posPausa];
 		Graphics2D ruleta2D=(Graphics2D) g;
 
-		ruleta2D.setColor(Color.GREEN.darker());
+		ruleta2D.setColor(Color.GREEN.darker().darker().darker());
 
 		ruleta2D.fillRect(0, 0, this.getWidth(), this.getHeight());
 
