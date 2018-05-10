@@ -1288,10 +1288,25 @@ public class PanelTablero extends JPanel {
 		this.add(columna3);
 	}
 
+	/**
+		*Establece las apuestas 1x1 que se hacen
+		*
+		*/
 	private void setApuestas1X1(String apuesta){
-			if(apuesta == "casilla_par"){
-
+			if(apuesta == "casilla_par" || apuesta == "casilla_impar"){
+				for(int i = 1; i<=36;i++) {
+							if(i % 2 == 0 ) {
+									if(apuesta == "casilla_par"){
+										apuesta1X1.add(i);
+									}
+							}else{
+									if(apuesta == "casilla_impar"){
+										apuesta1X1.add(i);
+									}
+							}
+				}
 			}
+
 			else if(apuesta == "casilla_black" || apuesta == "casilla_red"){
 					for(int i = 1; i<=36;i++) {
 								if(  (i % 2 ==0 && (i<=10 || i > 19 && i<29))   ||    (i %2 != 0 && (i>10 && i<18 || i>=29)) ) {
@@ -1305,10 +1320,73 @@ public class PanelTablero extends JPanel {
 								}
 					}
 			}
+
+			else if(apuesta == "casilla1_18"){
+				for(int i = 1; i <= 18; i++){
+					apuesta1X1.add(i);
+				}
+			}
+
+			else if(apuesta == "casilla19_36"){
+				for(int i = 19; i <= 36; i++){
+					apuesta1X1.add(i);
+				}
+			}
 	}
 
+	private void setApuestas2X1(String apuesta){
+		if(apuesta == "primera12na"){
+			for (int i = 1; i <= 12; i++) {
+				System.out.println("[debug] apuesta primera12na = "+i);
+				apuesta2X1.add(i);
+			}
+		}
+
+		else if(apuesta == "segunda12na"){
+			for (int i = 13; i <= 24; i++) {
+				System.out.println("[debug] apuesta segunda12na = "+i);
+				apuesta2X1.add(i);
+			}
+		}
+
+		else if(apuesta == "tercera12na"){
+			for (int i = 25; i <= 36; i++) {
+				System.out.println("[debug] apuesta tercera12na = "+i);
+				apuesta2X1.add(i);
+			}
+		}
+
+		else if(apuesta == "columna1"){
+			for (int i = 1; i <= 34; i+=3) {
+				System.out.println("[debug] apuesta columna1 = "+i);
+				apuesta2X1.add(i);
+			}
+		}
+
+		else if(apuesta == "columna2"){
+			for (int i = 2; i <= 35; i+=3) {
+				System.out.println("[debug] apuesta columna2 = "+i);
+				apuesta2X1.add(i);
+			}
+		}
+
+		else if(apuesta == "columna3"){
+			for (int i = 3; i <= 36; i+=3) {
+				System.out.println("[debug] apuesta columna3 = "+i);
+				apuesta2X1.add(i);
+			}
+		}
+	}
+
+	/**
+	 *Retorna las apuestas 1x1 que hay en el tablero
+	 */
 	public ArrayList<Integer> getApuesta1X1(){
 		return apuesta1X1;
+	}
+
+	public ArrayList<Integer> getApuesta2X1(){
+		return apuesta2X1;
 	}
 
 	private class MouseEvents implements MouseListener{
@@ -1323,6 +1401,11 @@ public class PanelTablero extends JPanel {
 			//Apuestas 1X1
 			if(button == "casilla_par" || button == "casilla_black" || button == "casilla_red" || button == "casilla_impar" || button == "casilla1_18" || button == "casilla19_36"){
 				setApuestas1X1(button);
+			}
+
+			//Apuestas 2X1
+			if(button == "primera12na" || button == "segunda12na" || button == "tercera12na" || button == "columna1" || button == "columna2" || button == "columna3"){
+				setApuestas2X1(button);
 			}
 		}
 

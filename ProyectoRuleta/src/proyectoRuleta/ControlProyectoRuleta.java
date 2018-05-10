@@ -43,7 +43,9 @@ public class ControlProyectoRuleta {
 		ruleta.setRuletaGirando(true);
 		ruleta.girarRuleta(); //empezar a girar la ruleta
 		apuesta1X1 = tablero.getApuesta1X1(); //obtener las apuestas 1x1 que se hizo
-		System.out.println("[debug] Control: total apuestas color "+apuesta1X1.size());
+		apuesta2X1 = tablero.getApuesta2X1(); //obtener las apuestas 2X1 que hay en el ytablero
+		System.out.println("[debug] Control: total apuestas 1X1 "+apuesta1X1.size());
+		System.out.println("[debug] Control: total apuestas 2X1 "+apuesta2X1.size());
 
 		//esperar que la ruleta pare
 		Thread delay = new Thread(){
@@ -69,13 +71,14 @@ public class ControlProyectoRuleta {
 		for(int i = 0; i < apuesta1X1.size(); i++){
       if(resultadoRuleta == apuesta1X1.get(i) ){
 				ganancia+=(50+50);
-				System.out.println("[debug] Control: Resultado = "+resultadoRuleta+" Ganaste!");
+				System.out.println("[debug] Control: Apuesta 1x1 resultado = "+resultadoRuleta+" Ganaste!");
 			}
 		}
 
 		for(int i = 0; i < apuesta2X1.size(); i++){
       if(resultadoRuleta == apuesta2X1.get(i) ){
 				ganancia+=(50+100);
+				System.out.println("[debug] Control: Apuesta 2x1 resultado = "+resultadoRuleta+" Ganaste!");
 			}
 		}
 
