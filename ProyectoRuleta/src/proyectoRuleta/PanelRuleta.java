@@ -71,8 +71,12 @@ public class PanelRuleta extends JPanel {
 	private int posicionFinal=0;
 	// variable que aloja el la posicion en el arreglo casillas
 	private int posPausa=0;
-	//Variable que aloja el numero ganador
+	//Variable que aloja el numero ganador internamente
 	private int casillaGanadora=0;
+
+	//Numero ganador, este es el que se le entrega al control
+	private int numeroGanador= 0;
+
 	//iterador que ira aumentando para facilitar el repaint de la img.
 	private int iteradorImagen=0;
 
@@ -115,8 +119,18 @@ public class PanelRuleta extends JPanel {
 		posPausa=n;
 	}
 
+	/**
+	 * Retorna la casilla ganadora interna
+	 */
 	public int getCasillaGanadora() {
 		return casillaGanadora;
+	}
+
+	/**
+	  *Retorna el numero ganador, este es el numero que aparece en la vista de la ruleta
+	  */
+	public int getNumeroGanador(){
+		return numeroGanador;
 	}
 
 	public void setRuletaGirando(boolean booleano) {
@@ -177,6 +191,7 @@ public class PanelRuleta extends JPanel {
 				}
 				System.out.println(getPosicionPausa()+"++");
 				System.out.println(getCasillaGanadora());
+				numeroGanador = getCasillaGanadora();
 				System.out.println(getPosicionPausa()+"++");
 			}catch(InterruptedException e) {
 				return;

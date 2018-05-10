@@ -11,6 +11,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -22,6 +23,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PanelTablero extends JPanel {
+
+	private ArrayList<Integer> apuesta1X1 = new ArrayList();
+	private ArrayList<Integer> apuesta2X1 = new ArrayList();
+	private ArrayList<Integer> apuesta05X1 = new ArrayList();
+	private ArrayList<Integer> apuesta5X1 = new ArrayList();
+	private ArrayList<Integer> apuesta8X1 = new ArrayList();
+	private ArrayList<Integer> apuesta11X1 = new ArrayList();
+	private ArrayList<Integer> apuesta17X1 = new ArrayList();
+	private ArrayList<Integer> apuesta35X1 = new ArrayList();
 
 	/**Bonotiza del tablero */
 	private JButton casilla1_18 = new JButton("1-18");
@@ -1278,13 +1288,42 @@ public class PanelTablero extends JPanel {
 		this.add(columna3);
 	}
 
+	private void setApuestas1X1(String apuesta){
+			if(apuesta == "casilla_par"){
+
+			}
+			else if(apuesta == "casilla_black" || apuesta == "casilla_red"){
+					for(int i = 1; i<=36;i++) {
+								if(  (i % 2 ==0 && (i<=10 || i > 19 && i<29))   ||    (i %2 != 0 && (i>10 && i<18 || i>=29)) ) {
+										if(apuesta == "casilla_black"){
+											apuesta1X1.add(i);
+										}
+								}else{
+									  if(apuesta == "casilla_red"){
+										  apuesta1X1.add(i);
+										}
+								}
+					}
+			}
+	}
+
+	public ArrayList<Integer> getApuesta1X1(){
+		return apuesta1X1;
+	}
+
 	private class MouseEvents implements MouseListener{
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			// TODO Auto-generated method stub
 			JButton clickeado = (JButton) e.getSource();
+			String button = clickeado.getName();
 			System.out.println(clickeado.getName());
+
+			//Apuestas 1X1
+			if(button == "casilla_par" || button == "casilla_black" || button == "casilla_red" || button == "casilla_impar" || button == "casilla1_18" || button == "casilla19_36"){
+				setApuestas1X1(button);
+			}
 		}
 
 		@Override

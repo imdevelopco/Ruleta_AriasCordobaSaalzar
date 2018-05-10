@@ -22,7 +22,7 @@ public class VistaProyectoRuleta extends JFrame{
 	private JPanel contenedorPrincipal, panelMensajes, panelTableros;
 	private Jugador player;
 	private JLabel display;
-	//private ControlProyectoRuleta control = new ControlProyectoRuleta();
+	private ControlProyectoRuleta control = new ControlProyectoRuleta();
 	/** Tiempo para realizar las apuestas*/
 	private int time = 10,timeRuleta = 400;
 	private boolean estadoJuego = false;
@@ -97,7 +97,8 @@ public class VistaProyectoRuleta extends JFrame{
 				}
 			}
 
-			ruleta.girarRuleta();
+			control.controlGirarRuleta(ruleta, tablero);
+			//ruleta.girarRuleta();
 			display.setText("mientas gira la ruleta obtenemos las apuestas");
 			display.setText("cuando termine la ruleta, obtenemos el valor de la ruleta");
 			display.setText("calculamos los ganadores y perdedores, se realiza los pagos");

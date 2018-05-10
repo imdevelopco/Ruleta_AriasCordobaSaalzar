@@ -35,9 +35,29 @@ public class ControlProyectoRuleta {
 	 * Instantiates a new control proyecto ruleta.
 	 */
 	public ControlProyectoRuleta() {
-		System.out.println("Comienzan apuestas");
-		RondaNueva ronda = new RondaNueva();
-		ronda.start();
+		System.out.println("[debug] Comienzan apuestas");
+	}
+
+	public void controlGirarRuleta(PanelRuleta ruleta, PanelTablero tablero){
+		System.out.println("[debug] Control: entre a controlGirarRuleta");
+		ruleta.setRuletaGirando(true);
+		ruleta.girarRuleta(); //empezar a girar la ruleta
+		apuesta1X1 = tablero.getApuesta1X1(); //obtener las apuestas 1x1 que se hizo
+		System.out.println("[debug] Control: total apuestas color "+apuesta1X1.size());
+
+		//esperar que la ruleta pare
+		Thread delay = new Thread(){
+            public synchronized void run(){
+              try {
+                	sleep(5000);
+									System.out.println("[debug] Control: numero ganador= "+ruleta.getNumeroGanador());
+									calcularGanancia(ruleta.getNumeroGanador());
+            	}catch (InterruptedException ex){
+            		ex.printStackTrace();
+            	}
+            }
+		};
+		delay.start();
 	}
 
 	/**
@@ -49,6 +69,7 @@ public class ControlProyectoRuleta {
 		for(int i = 0; i < apuesta1X1.size(); i++){
       if(resultadoRuleta == apuesta1X1.get(i) ){
 				ganancia+=(50+50);
+				System.out.println("[debug] Control: Resultado = "+resultadoRuleta+" Ganaste!");
 			}
 		}
 
@@ -94,6 +115,7 @@ public class ControlProyectoRuleta {
 			}
 		}
 
+		System.out.println("[debug] Control: Ganancia = "+ganancia);
 		this.totalRonda = ganancia;
 	}
 
@@ -104,67 +126,5 @@ public class ControlProyectoRuleta {
 	public int getTotalRonda(){
 		return totalRonda;
 	}
-
-	/**
-	 * Gets the resultado ruleta.
-	 *
-	 * @param tb the tb
-	 * @return the resultado ruleta
-	 
-	public int getResultadoRuleta(PanelTablero tb) {
-		return tb.getPocisionFinal();
-	}
-	*/
-
-	/**
-	 * Establece el tiempo para realizar las apuestas.
-	 *
-	 * @param time entero, cantidad de segundos para realizar las apuestas
-	 */
-	public void setTime(int time) {
-		this.time = time;
-	}
-
-
-	/**
-	 * The Class RondaNueva.
-	 */
-	private class RondaNueva implements Runnable{
-
-		/* (non-Javadoc)
-		 * @see java.lang.Runnable#run()
-		 */
-		@Override
-		public void run() {
-			// TODO Auto-generated method stub
-			while(time > 0) {
-				time-=1;
-				setTime(time);
-				try {
-					Thread.sleep(1000);
-					System.out.println("ruleta comienza en: "+time);
-				}
-				catch(InterruptedException e) {
-					return;
-				}
-			}
-			System.out.println("comienza a girar la ruleta");
-			System.out.println("mientas gira la ruleta obtenemos las apuestas");
-			System.out.println("cuando termine la ruleta, obtenemos el valor de la ruleta");
-			System.out.println("calculamos los ganadores y poerdedores, se realiza los pagos");
-			PanelRuleta r = new PanelRuleta();
-			r.setRuletaGirando(true);
-		}
-
-		/**
-		 * Start.
-		 */
-		public void start() {
-			timerThread = new Thread(this);
-			timerThread.start();
-		}
-
-	}
-
 
 }
