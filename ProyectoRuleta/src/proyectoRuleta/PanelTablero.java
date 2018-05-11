@@ -1718,6 +1718,250 @@ public class PanelTablero extends JPanel {
 			apuesta11X1.add(36);
 		}
 	}
+
+	private void setApuesta17X1(String apuesta){
+		if(apuesta == "casilla1y2"){
+				apuesta17X1.add(1);
+				apuesta17X1.add(2);
+		}
+		if(apuesta == "casilla2y3"){
+			apuesta17X1.add(2);
+			apuesta17X1.add(3);
+		}
+
+		if(apuesta == "casilla0y3"){
+			apuesta17X1.add(0);
+			apuesta17X1.add(3);
+		}
+		if(apuesta == "casilla0y2"){
+			apuesta17X1.add(0);
+			apuesta17X1.add(2);
+		}
+		if(apuesta == "casilla0y1"){
+			apuesta17X1.add(0);
+			apuesta17X1.add(1);
+		}
+		if(apuesta == "casilla1y4"){
+			apuesta17X1.add(1);
+			apuesta17X1.add(4);
+		}
+		if(apuesta == "casilla2y5"){
+			apuesta17X1.add(2);
+			apuesta17X1.add(5);
+		}
+		if(apuesta == "casilla3y6"){
+			apuesta17X1.add(3);
+			apuesta17X1.add(6);
+		}
+		if(apuesta == "casilla4y5"){
+			apuesta17X1.add(4);
+			apuesta17X1.add(5);
+		}
+		if(apuesta == "casilla5y6"){
+			apuesta17X1.add(5);
+			apuesta17X1.add(6);
+		}
+		if(apuesta == "casilla6y9"){
+			apuesta17X1.add(6);
+			apuesta17X1.add(9);
+		}
+		if(apuesta == "casilla5y8"){
+			apuesta17X1.add(5);
+			apuesta17X1.add(8);
+		}
+		if(apuesta == "casilla4y7"){
+			apuesta17X1.add(4);
+			apuesta17X1.add(7);
+		}
+		if(apuesta == "casilla7y8"){
+			apuesta17X1.add(7);
+			apuesta17X1.add(8);
+		}
+		if(apuesta == "casilla8y9"){
+			apuesta17X1.add(8);
+			apuesta17X1.add(9);
+		}
+		if(apuesta == "casilla9y12"){
+			apuesta17X1.add(9);
+			apuesta17X1.add(12);
+		}
+		if(apuesta == "casilla8y11"){
+			apuesta17X1.add(8);
+			apuesta17X1.add(11);
+		}
+		if(apuesta == "casilla7y10"){
+			apuesta17X1.add(7);
+			apuesta17X1.add(10);
+		}
+		if(apuesta == "casilla10y13"){
+			apuesta17X1.add(10);
+			apuesta17X1.add(13);
+		}
+		if(apuesta == "casilla10y11"){
+			apuesta17X1.add(10);
+			apuesta17X1.add(11);
+		}
+		if(apuesta == "casilla11y12"){
+			apuesta17X1.add(11);
+			apuesta17X1.add(12);
+		}
+		if(apuesta == "casilla11y14"){
+			apuesta17X1.add(11);
+			apuesta17X1.add(14);
+		}
+		if(apuesta == "casilla12y15"){
+			apuesta17X1.add(12);
+			apuesta17X1.add(15);
+		}
+		if(apuesta == "casilla14y15"){
+			apuesta17X1.add(14);
+			apuesta17X1.add(15);
+		}
+		if(apuesta == "casilla13y14"){
+			apuesta17X1.add(13);
+			apuesta17X1.add(14);
+		}
+		if(apuesta == "casilla13y16"){
+			apuesta17X1.add(13);
+			apuesta17X1.add(16);
+		}
+		if(apuesta == "casilla14y17"){
+			apuesta17X1.add(14);
+			apuesta17X1.add(17);
+		}
+		if(apuesta == "casilla15y18"){
+			apuesta17X1.add(15);
+			apuesta17X1.add(18);
+		}
+		if(apuesta == "casilla17y18"){
+			apuesta17X1.add(17);
+			apuesta17X1.add(18);
+		}
+		if(apuesta == "casilla16y17"){
+			apuesta17X1.add(16);
+			apuesta17X1.add(17);
+		}
+		if(apuesta == "casilla16y19"){
+			apuesta17X1.add(16);
+			apuesta17X1.add(19);
+		}
+		if(apuesta == "casilla17y20"){
+			apuesta17X1.add(17);
+			apuesta17X1.add(20);
+		}
+		if(apuesta == "casilla18y21"){
+			apuesta17X1.add(18);
+			apuesta17X1.add(21);
+		}
+		if(apuesta == "casilla20y21"){
+			apuesta17X1.add(20);
+			apuesta17X1.add(21);
+		}
+		if(apuesta == "casilla19y20"){
+			apuesta17X1.add(19);
+			apuesta17X1.add(20);
+		}
+		if(apuesta == "casilla19y22"){
+			apuesta17X1.add(19);
+			apuesta17X1.add(22);
+		}
+		if(apuesta == "casilla20y23"){
+			apuesta17X1.add(20);
+			apuesta17X1.add(23);
+		}
+		if(apuesta == "casilla21y24"){
+			apuesta17X1.add(21);
+			apuesta17X1.add(24);
+		}
+		if(apuesta == "casilla23y24"){
+			apuesta17X1.add(23);
+			apuesta17X1.add(24);
+		}
+		if(apuesta == "casilla22y23"){
+			apuesta17X1.add(22);
+			apuesta17X1.add(23);
+		}
+		if(apuesta == "casilla22y25"){
+			apuesta17X1.add(22);
+			apuesta17X1.add(25);
+		}
+		if(apuesta == "casilla23y26"){
+			apuesta17X1.add(23);
+			apuesta17X1.add(26);
+		}
+		if(apuesta == "casilla24y27"){
+			apuesta17X1.add(24);
+			apuesta17X1.add(27);
+		}
+		if(apuesta == "casilla26y27"){
+			apuesta17X1.add(26);
+			apuesta17X1.add(27);
+		}
+		if(apuesta == "casilla25y26"){
+			apuesta17X1.add(25);
+			apuesta17X1.add(26);
+		}
+		if(apuesta == "casilla25y28"){
+			apuesta17X1.add(25);
+			apuesta17X1.add(28);
+		}
+		if(apuesta == "casilla26y29"){
+			apuesta17X1.add(26);
+			apuesta17X1.add(29);
+		}
+		if(apuesta == "casilla27y30"){
+			apuesta17X1.add(27);
+			apuesta17X1.add(30);
+		}
+		if(apuesta == "casilla29y30"){
+			apuesta17X1.add(29);
+			apuesta17X1.add(30);
+		}
+		if(apuesta == "casilla28y29"){
+			apuesta17X1.add(28);
+			apuesta17X1.add(29);
+		}
+		if(apuesta == "casilla28y31"){
+			apuesta17X1.add(28);
+			apuesta17X1.add(31);
+		}
+		if(apuesta == "casilla29y32"){
+			apuesta17X1.add(29);
+			apuesta17X1.add(32);
+		}
+		if(apuesta == "casilla30y33"){
+			apuesta17X1.add(30);
+			apuesta17X1.add(33);
+		}
+		if(apuesta == "casilla32y33"){
+			apuesta17X1.add(32);
+			apuesta17X1.add(33);
+		}
+		if(apuesta == "casilla31y32"){
+			apuesta17X1.add(31);
+			apuesta17X1.add(32);
+		}
+		if(apuesta == "casilla31y34"){
+			apuesta17X1.add(31);
+			apuesta17X1.add(34);
+		}
+		if(apuesta == "casilla32y35"){
+			apuesta17X1.add(32);
+			apuesta17X1.add(35);
+		}
+		if(apuesta == "casilla33y36"){
+			apuesta17X1.add(33);
+			apuesta17X1.add(36);
+		}
+		if(apuesta == "casilla35y36"){
+			apuesta17X1.add(35);
+			apuesta17X1.add(36);
+		}
+		if(apuesta == "casilla34y35"){
+			apuesta17X1.add(34);
+			apuesta17X1.add(35);
+		}
+	}
 	/**
 	 *Retorna las apuestas 1x1 que hay en el tablero
 	 */
@@ -1743,6 +1987,10 @@ public class PanelTablero extends JPanel {
 
 	public ArrayList<Integer> getApuesta11X1(){
 		return apuesta11X1;
+	}
+
+	public ArrayList<Integer> getApuesta17X1(){
+		return apuesta17X1;
 	}
 
 	private class MouseEvents implements MouseListener{
@@ -1808,6 +2056,71 @@ public class PanelTablero extends JPanel {
 				 button == "fila7" || button == "fila8" || button == "fila9" ||
 				 button == "fila10" || button == "fila11" || button == "fila12"){
 				setApuesta11X1(button);
+			}
+
+			//Apuesta 17X1
+			if(
+				button == "casilla1y2" ||
+				button == "casilla2y3" ||
+				button == "casilla0y3" ||
+				button == "casilla0y2" ||
+				button == "casilla0y1" ||
+				button == "casilla1y4" ||
+				button == "casilla2y5" ||
+				button == "casilla3y6" ||
+				button == "casilla4y5" ||
+				button == "casilla5y6" ||
+				button == "casilla6y9" ||
+				button == "casilla5y8" ||
+				button == "casilla4y7" ||
+				button == "casilla7y8" ||
+				button == "casilla8y9" ||
+				button == "casilla9y12" ||
+				button == "casilla8y11" ||
+				button == "casilla7y10" ||
+				button == "casilla10y13" ||
+				button == "casilla10y11" ||
+				button == "casilla11y12" ||
+				button == "casilla11y14" ||
+				button == "casilla12y15" ||
+				button == "casilla14y15" ||
+				button == "casilla13y14" ||
+				button == "casilla13y16" ||
+				button == "casilla14y17" ||
+				button == "casilla15y18" ||
+				button == "casilla17y18" ||
+				button == "casilla16y17" ||
+				button == "casilla16y19" ||
+				button == "casilla17y20" ||
+				button == "casilla18y21" ||
+				button == "casilla20y21" ||
+				button == "casilla19y20" ||
+				button == "casilla19y22" ||
+				button == "casilla20y23" ||
+				button == "casilla21y24" ||
+				button == "casilla23y24" ||
+				button == "casilla22y23" ||
+				button == "casilla22y25" ||
+				button == "casilla23y26" ||
+				button == "casilla24y27" ||
+				button == "casilla26y27" ||
+				button == "casilla25y26" ||
+				button == "casilla25y28" ||
+				button == "casilla26y29" ||
+				button == "casilla27y30" ||
+				button == "casilla29y30" ||
+				button == "casilla28y29" ||
+				button == "casilla28y31" ||
+				button == "casilla29y32" ||
+				button == "casilla30y33" ||
+				button == "casilla32y33" ||
+				button == "casilla31y32" ||
+				button == "casilla31y34" ||
+				button == "casilla32y35" ||
+				button == "casilla33y36" ||
+				button == "casilla35y36" ||
+				button == "casilla34y35"){
+					 setApuesta17X1(button);
 			}
 		}
 
