@@ -1511,8 +1511,213 @@ public class PanelTablero extends JPanel {
 
 	private void setApuesta8X1(String apuesta){
 
+		if(apuesta == "casilla1_2_4_5"){
+			apuesta8X1.add(1);
+			apuesta8X1.add(2);
+			apuesta8X1.add(4);
+			apuesta8X1.add(5);
+		}
+		else if(apuesta == "casilla2_3_5_6"){
+			apuesta8X1.add(2);
+			apuesta8X1.add(3);
+			apuesta8X1.add(5);
+			apuesta8X1.add(6);
+		}
+		else if(apuesta == "casilla4_5_7_8"){
+			apuesta8X1.add(4);
+			apuesta8X1.add(5);
+			apuesta8X1.add(7);
+			apuesta8X1.add(8);
+		}
+		else if(apuesta == "casilla5_6_8_9"){
+			apuesta8X1.add(5);
+			apuesta8X1.add(6);
+			apuesta8X1.add(8);
+			apuesta8X1.add(9);
+		}
+		else if(apuesta == "casilla7_8_10_11"){
+			apuesta8X1.add(7);
+			apuesta8X1.add(8);
+			apuesta8X1.add(10);
+			apuesta8X1.add(11);
+		}
+		else if(apuesta == "casilla8_9_11_12"){
+			apuesta8X1.add(8);
+			apuesta8X1.add(9);
+			apuesta8X1.add(11);
+			apuesta8X1.add(12);
+		}
+		else if(apuesta == "casilla10_11_13_14"){
+			apuesta8X1.add(10);
+			apuesta8X1.add(11);
+			apuesta8X1.add(13);
+			apuesta8X1.add(14);
+		}
+		else if(apuesta == "casilla11_12_14_15"){
+			apuesta8X1.add(11);
+			apuesta8X1.add(12);
+			apuesta8X1.add(14);
+			apuesta8X1.add(15);
+		}
+		else if(apuesta == "casilla13_14_16_17"){
+			apuesta8X1.add(13);
+			apuesta8X1.add(14);
+			apuesta8X1.add(16);
+			apuesta8X1.add(17);
+		}
+		else if(apuesta == "casilla14_15_17_18"){
+			apuesta8X1.add(14);
+			apuesta8X1.add(15);
+			apuesta8X1.add(17);
+			apuesta8X1.add(18);
+		}
+		else if(apuesta == "casilla16_17_19_20"){
+			apuesta8X1.add(16);
+			apuesta8X1.add(17);
+			apuesta8X1.add(19);
+			apuesta8X1.add(20);
+		}
+		else if(apuesta == "casilla17_18_20_21"){
+			apuesta8X1.add(17);
+			apuesta8X1.add(18);
+			apuesta8X1.add(20);
+			apuesta8X1.add(21);
+		}
+		else if(apuesta == "casilla19_20_22_23"){
+			apuesta8X1.add(19);
+			apuesta8X1.add(20);
+			apuesta8X1.add(22);
+			apuesta8X1.add(23);
+		}
+		else if(apuesta == "casilla20_21_23_24"){
+			apuesta8X1.add(20);
+			apuesta8X1.add(21);
+			apuesta8X1.add(23);
+			apuesta8X1.add(24);
+		}
+		else if(apuesta == "casilla22_23_25_26"){
+			apuesta8X1.add(22);
+			apuesta8X1.add(23);
+			apuesta8X1.add(25);
+			apuesta8X1.add(26);
+		}
+		else if(apuesta == "casilla23_24_26_27"){
+			apuesta8X1.add(23);
+			apuesta8X1.add(24);
+			apuesta8X1.add(26);
+			apuesta8X1.add(27);
+		}
+		else if(apuesta == "casilla25_26_28_29"){
+			apuesta8X1.add(25);
+			apuesta8X1.add(26);
+			apuesta8X1.add(28);
+			apuesta8X1.add(29);
+		}
+		else if(apuesta == "casilla26_27_29_30"){
+			apuesta8X1.add(26);
+			apuesta8X1.add(27);
+			apuesta8X1.add(29);
+			apuesta8X1.add(30);
+		}
+		else if(apuesta == "casilla28_29_31_32"){
+			apuesta8X1.add(28);
+			apuesta8X1.add(29);
+			apuesta8X1.add(31);
+			apuesta8X1.add(32);
+		}
+		else if(apuesta == "casilla29_30_32_33"){
+			apuesta8X1.add(29);
+			apuesta8X1.add(30);
+			apuesta8X1.add(32);
+			apuesta8X1.add(33);
+		}
+		else if(apuesta == "casilla31_32_34_35"){
+			apuesta8X1.add(31);
+			apuesta8X1.add(32);
+			apuesta8X1.add(34);
+			apuesta8X1.add(35);
+		}
+		else if(apuesta == "casilla32_33_35_36"){
+			apuesta8X1.add(32);
+			apuesta8X1.add(33);
+			apuesta8X1.add(35);
+			apuesta8X1.add(36);
+		}
+
 	}
 
+	private void setApuesta11X1(String apuesta){
+		if(apuesta == "casilla0_1_2"){
+			apuesta11X1.add(0);
+			apuesta11X1.add(1);
+			apuesta11X1.add(2);
+		}
+		else if(apuesta == "casilla0_2_3"){
+			apuesta11X1.add(0);
+			apuesta11X1.add(2);
+			apuesta11X1.add(3);
+		}
+		else if(apuesta == "fila1"){
+			apuesta11X1.add(1);
+			apuesta11X1.add(2);
+			apuesta11X1.add(3);
+		}
+		else if(apuesta == "fila2"){
+			apuesta11X1.add(4);
+			apuesta11X1.add(5);
+			apuesta11X1.add(6);
+		}
+		else if(apuesta == "fila3"){
+			apuesta11X1.add(7);
+			apuesta11X1.add(8);
+			apuesta11X1.add(9);
+		}
+		else if(apuesta == "fila4"){
+			apuesta11X1.add(10);
+			apuesta11X1.add(11);
+			apuesta11X1.add(12);
+		}
+		else if(apuesta == "fila5"){
+			apuesta11X1.add(13);
+			apuesta11X1.add(14);
+			apuesta11X1.add(15);
+		}
+		else if(apuesta == "fila6"){
+			apuesta11X1.add(16);
+			apuesta11X1.add(17);
+			apuesta11X1.add(18);
+		}
+		else if(apuesta == "fila7"){
+			apuesta11X1.add(19);
+			apuesta11X1.add(20);
+			apuesta11X1.add(21);
+		}
+		else if(apuesta == "fila8"){
+			apuesta11X1.add(22);
+			apuesta11X1.add(23);
+			apuesta11X1.add(24);
+		}
+		else if(apuesta == "fila9"){
+			apuesta11X1.add(25);
+			apuesta11X1.add(26);
+			apuesta11X1.add(27);
+		}
+		else if(apuesta == "fila10"){
+			apuesta11X1.add(28);
+			apuesta11X1.add(29);
+			apuesta11X1.add(30);
+		}
+		else if(apuesta == "fila11"){
+			apuesta11X1.add(31);
+			apuesta11X1.add(32);
+			apuesta11X1.add(33);
+		}
+		else if(apuesta == "fila12"){
+			apuesta11X1.add(34);
+			apuesta11X1.add(35);
+			apuesta11X1.add(36);
+		}
+	}
 	/**
 	 *Retorna las apuestas 1x1 que hay en el tablero
 	 */
@@ -1530,6 +1735,14 @@ public class PanelTablero extends JPanel {
 
 	public ArrayList<Integer> getApuesta5X1(){
 		return apuesta5X1;
+	}
+
+	public ArrayList<Integer> getApuesta8X1(){
+		return apuesta8X1;
+	}
+
+	public ArrayList<Integer> getApuesta11X1(){
+		return apuesta11X1;
 	}
 
 	private class MouseEvents implements MouseListener{
@@ -1586,6 +1799,15 @@ public class PanelTablero extends JPanel {
 				 button == "casilla32_33_35_36"
 				){
 					setApuesta8X1(button);
+			}
+
+			//Apuesta 11X1
+			if(button == "casilla0_1_2" || button == "casilla0_2_3" ||
+			   button == "fila1" || button == "fila2" || button == "fila3" ||
+				 button == "fila4" || button == "fila5" || button == "fila6" ||
+				 button == "fila7" || button == "fila8" || button == "fila9" ||
+				 button == "fila10" || button == "fila11" || button == "fila12"){
+				setApuesta11X1(button);
 			}
 		}
 
