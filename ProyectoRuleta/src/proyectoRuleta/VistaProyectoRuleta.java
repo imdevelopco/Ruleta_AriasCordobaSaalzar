@@ -4,6 +4,7 @@ package proyectoRuleta;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -58,7 +59,10 @@ public class VistaProyectoRuleta extends JFrame{
 
 		//mensajes para el jugador
 		display = new JLabel();
-		contenedorPrincipal.add(display,BorderLayout.NORTH);
+		Font texto = new Font(Font.SERIF, Font.BOLD, 32);
+		display.setFont(texto);
+		display.setBackground(Color.BLUE);
+		contenedorPrincipal.add(display,BorderLayout.SOUTH);
 
 		this.add(contenedorPrincipal);
 
