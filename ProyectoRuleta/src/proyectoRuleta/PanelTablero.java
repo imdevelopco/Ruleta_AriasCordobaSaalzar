@@ -1962,6 +1962,117 @@ public class PanelTablero extends JPanel {
 			apuesta17X1.add(35);
 		}
 	}
+
+	private void setApuesta35X1(String button){
+		if(button == "casilla1"){
+			apuesta35X1.add(1);
+		}
+		else if(button == "casilla2"){
+			apuesta35X1.add(2);
+		}
+		else if(button == "casilla3"){
+			apuesta35X1.add(3);
+		}
+		else if(button == "casilla4"){
+			apuesta35X1.add(4);
+		}
+		else if(button == "casilla5"){
+			apuesta35X1.add(5);
+		}
+		else if(button == "casilla6"){
+			apuesta35X1.add(6);
+		}
+		else if(button == "casilla7"){
+			apuesta35X1.add(7);
+		}
+		else if(button == "casilla8"){
+			apuesta35X1.add(8);
+		}
+		else if(button == "casilla9"){
+			apuesta35X1.add(9);
+		}
+		else if(button == "casilla10"){
+			apuesta35X1.add(10);
+		}
+		else if(button == "casilla11"){
+			apuesta35X1.add(11);
+		}
+		else if(button == "casilla12"){
+			apuesta35X1.add(12);
+		}
+		else if(button == "casilla13"){
+			apuesta35X1.add(13);
+		}
+		else if(button == "casilla14"){
+			apuesta35X1.add(14);
+		}
+		else if(button == "casilla15"){
+			apuesta35X1.add(15);
+		}
+		else if(button == "casilla16"){
+			apuesta35X1.add(16);
+		}
+		else if(button == "casilla17"){
+			apuesta35X1.add(17);
+		}
+		else if(button == "casilla18"){
+			apuesta35X1.add(18);
+		}
+		else if(button == "casilla19"){
+			apuesta35X1.add(19);
+		}
+		else if(button == "casilla20"){
+			apuesta35X1.add(20);
+		}
+		else if(button == "casilla21"){
+			apuesta35X1.add(21);
+		}
+		else if(button == "casilla22"){
+			apuesta35X1.add(22);
+		}
+		else if(button == "casilla23"){
+			apuesta35X1.add(23);
+		}
+		else if(button == "casilla24"){
+			apuesta35X1.add(24);
+		}
+		else if(button == "casilla25"){
+			apuesta35X1.add(25);
+		}
+		else if(button == "casilla26"){
+			apuesta35X1.add(26);
+		}
+		else if(button == "casilla27"){
+			apuesta35X1.add(27);
+		}
+		else if(button == "casilla28"){
+			apuesta35X1.add(28);
+		}
+		else if(button == "casilla29"){
+			apuesta35X1.add(29);
+		}
+		else if(button == "casilla30"){
+			apuesta35X1.add(30);
+		}
+		else if(button == "casilla31"){
+			apuesta35X1.add(31);
+		}
+		else if(button == "casilla32"){
+			apuesta35X1.add(32);
+		}
+		else if(button == "casilla33"){
+			apuesta35X1.add(33);
+		}
+		else if(button == "casilla34"){
+			apuesta35X1.add(34);
+		}
+		else if(button == "casilla35"){
+			apuesta35X1.add(35);
+		}
+		else if(button == "casilla36"){
+			apuesta35X1.add(36);
+		}
+	}
 	/**
 	 *Retorna las apuestas 1x1 que hay en el tablero
 	 */
@@ -1991,6 +2102,10 @@ public class PanelTablero extends JPanel {
 
 	public ArrayList<Integer> getApuesta17X1(){
 		return apuesta17X1;
+	}
+
+	public ArrayList<Integer> getApuesta35X1(){
+		return apuesta35X1;
 	}
 
 	private class MouseEvents implements MouseListener{
@@ -2121,6 +2236,47 @@ public class PanelTablero extends JPanel {
 				button == "casilla35y36" ||
 				button == "casilla34y35"){
 					 setApuesta17X1(button);
+			}
+
+			//Apuesta 35X1
+			if(button == "casilla1" ||
+				 button == "casilla2" ||
+				 button == "casilla3" ||
+				 button == "casilla4" ||
+				 button == "casilla5" ||
+				 button == "casilla6" ||
+				 button == "casilla7" ||
+				 button == "casilla8" ||
+				 button == "casilla9" ||
+				 button == "casilla10" ||
+				 button == "casilla11" ||
+				 button == "casilla12" ||
+				 button == "casilla12" ||
+				 button == "casilla13" ||
+				 button == "casilla14" ||
+				 button == "casilla15" ||
+				 button == "casilla16" ||
+				 button == "casilla17" ||
+				 button == "casilla18" ||
+				 button == "casilla19" ||
+				 button == "casilla20" ||
+				 button == "casilla21" ||
+				 button == "casilla22" ||
+				 button == "casilla23" ||
+				 button == "casilla24" ||
+				 button == "casilla25" ||
+				 button == "casilla26" ||
+				 button == "casilla27" ||
+				 button == "casilla28" ||
+				 button == "casilla29" ||
+				 button == "casilla30" ||
+				 button == "casilla31" ||
+				 button == "casilla32" ||
+				 button == "casilla33" ||
+				 button == "casilla34" ||
+				 button == "casilla35" ||
+				 button == "casilla36"){
+					 setApuesta35X1(button);
 			}
 		}
 

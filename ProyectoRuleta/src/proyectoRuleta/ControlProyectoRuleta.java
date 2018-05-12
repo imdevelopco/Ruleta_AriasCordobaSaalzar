@@ -49,6 +49,7 @@ public class ControlProyectoRuleta {
 		apuesta8X1 = tablero.getApuesta8X1(); //obtener las apuestas 8X1
 		apuesta11X1 = tablero.getApuesta11X1(); //obtener apuestas 11X1
 		apuesta17X1 = tablero.getApuesta17X1(); //obtener apuestas 17X1
+		apuesta35X1 = tablero.getApuesta35X1(); //obtener apuesta 35X1;
 		System.out.println("[debug] Control: total apuestas 1X1 "+apuesta1X1.size());
 		System.out.println("[debug] Control: total apuestas 2X1 "+apuesta2X1.size());
 
@@ -124,6 +125,7 @@ public class ControlProyectoRuleta {
 
 		for(int i = 0; i < apuesta35X1.size(); i++){
       if(resultadoRuleta == apuesta35X1.get(i) ){
+				System.out.println("[debug] Control: Apuesta 35x1 resultado = "+resultadoRuleta+" Ganaste!");
 				ganancia+= (50+(35*50));
 			}
 		}
