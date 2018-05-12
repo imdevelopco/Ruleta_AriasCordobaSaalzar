@@ -57,6 +57,15 @@ public class VistaProyectoRuleta extends JFrame{
 
 		contenedorPrincipal.add(panelTableros, BorderLayout.CENTER);
 
+		JPanel tableroInfo = new JPanel();
+		tableroInfo.setBackground(Color.GREEN.darker().darker().darker());
+		Font font = new Font(Font.SERIF, Font.BOLD, 18);
+		JLabel tdtsd2 = new JLabel("Total: 500");
+		tdtsd2.setFont(font);
+		tdtsd2.setForeground(Color.WHITE);
+		tableroInfo.add(tdtsd2);
+		contenedorPrincipal.add(tableroInfo, BorderLayout.EAST);
+
 		//mensajes para el jugador
 		display = new JLabel();
 		Font texto = new Font(Font.SERIF, Font.BOLD, 32);
