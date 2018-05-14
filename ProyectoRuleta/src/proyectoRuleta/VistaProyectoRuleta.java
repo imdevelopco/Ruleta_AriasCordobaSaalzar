@@ -52,19 +52,13 @@ public class VistaProyectoRuleta extends JFrame{
 		panelTableros.add(ruleta);
 
 		tablero = new PanelTablero();
-		tablero.setLayout(null);
+		//tablero.setLayout(null);
 		panelTableros.add(tablero);
 
 		contenedorPrincipal.add(panelTableros, BorderLayout.CENTER);
 
-		JPanel tableroInfo = new JPanel();
-		tableroInfo.setBackground(Color.GREEN.darker().darker().darker());
-		Font font = new Font(Font.SERIF, Font.BOLD, 18);
-		JLabel tdtsd2 = new JLabel("Total: 500");
-		tdtsd2.setFont(font);
-		tdtsd2.setForeground(Color.WHITE);
-		tableroInfo.add(tdtsd2);
-		contenedorPrincipal.add(tableroInfo, BorderLayout.EAST);
+
+		//contenedorPrincipal.add(info, BorderLayout.EAST);
 
 		//mensajes para el jugador
 		display = new JLabel();
@@ -111,7 +105,6 @@ public class VistaProyectoRuleta extends JFrame{
 			}
 
 			control.controlGirarRuleta(ruleta, tablero);
-			//ruleta.girarRuleta();
 			display.setText("mientas gira la ruleta obtenemos las apuestas");
 			display.setText("cuando termine la ruleta, obtenemos el valor de la ruleta");
 			display.setText("calculamos los ganadores y perdedores, se realiza los pagos");
