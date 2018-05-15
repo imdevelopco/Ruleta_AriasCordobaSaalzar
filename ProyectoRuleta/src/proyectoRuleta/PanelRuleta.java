@@ -82,6 +82,7 @@ public class PanelRuleta extends JPanel {
 
 	private int timeRuleta = 400;
 	private Thread timerThread;
+	private RondaNueva ronda = new RondaNueva();
 
 	public int posiciones(int iterador) {
 
@@ -137,6 +138,10 @@ public class PanelRuleta extends JPanel {
 		ruletaGirando=booleano;
 	}
 
+	public void setTimeRuleta(int time){
+		this.timeRuleta = time;
+	}
+
 	public void paintComponent(Graphics g) {
 
 		// se cargan las imagenes
@@ -169,7 +174,6 @@ public class PanelRuleta extends JPanel {
 
 	public void girarRuleta(){
 		System.out.println("Entre a girarRuleta");
-		RondaNueva ronda = new RondaNueva();
 		ronda.start();
 	}
 
@@ -199,6 +203,7 @@ public class PanelRuleta extends JPanel {
 		}
 
 		public void start() {
+			setTimeRuleta(400);
 			timerThread = new Thread(this);
 			timerThread.start();
 		}
