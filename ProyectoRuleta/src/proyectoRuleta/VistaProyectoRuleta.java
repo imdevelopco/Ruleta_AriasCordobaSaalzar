@@ -1,9 +1,9 @@
-
 package proyectoRuleta;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -27,7 +27,7 @@ public class VistaProyectoRuleta extends JFrame{
 	private int time = 10,timeRuleta = 400;
 	private boolean estadoJuego = false;
 	/**Hilo para manejar el tiempo de las apuestas */
-	private Thread timerThread;
+	private JButton startButton = new JButton("comenzar");
 
 	public VistaProyectoRuleta(){
 
@@ -51,22 +51,27 @@ public class VistaProyectoRuleta extends JFrame{
 		panelTableros.add(ruleta);
 
 		tablero = new PanelTablero();
-		tablero.setLayout(null);
+		//tablero.setLayout(null);
 		panelTableros.add(tablero);
 
 		contenedorPrincipal.add(panelTableros, BorderLayout.CENTER);
 
+		MouseEvents evento = new MouseEvents();
+		startButton.addMouseListener(evento);
+		contenedorPrincipal.add(startButton, BorderLayout.NORTH);
+
 		//mensajes para el jugador
 		display = new JLabel();
-		contenedorPrincipal.add(display,BorderLayout.NORTH);
+		Font texto = new Font(Font.SERIF, Font.BOLD, 32);
+		display.setFont(texto);
+		display.setBackground(Color.BLUE);
+		contenedorPrincipal.add(display,BorderLayout.SOUTH);
 
 		this.add(contenedorPrincipal);
 
 		setTitle("TABLERO DE APUESTAS");
 
 		display.setText("Comienzan apuestas");
-		RondaNueva ronda = new RondaNueva();
-		ronda.start();
 	}
 
 	public void setTime(int time) {
@@ -90,6 +95,7 @@ public class VistaProyectoRuleta extends JFrame{
 				try {
 					Thread.sleep(1000);
 					display.setText("ruleta comienza en: "+time);
+					System.out.println("estoy en el hilo de la vista");
 					estadoJuego=true;
 				}
 				catch(InterruptedException e) {
@@ -98,7 +104,6 @@ public class VistaProyectoRuleta extends JFrame{
 			}
 
 			control.controlGirarRuleta(ruleta, tablero);
-			//ruleta.girarRuleta();
 			display.setText("mientas gira la ruleta obtenemos las apuestas");
 			display.setText("cuando termine la ruleta, obtenemos el valor de la ruleta");
 			display.setText("calculamos los ganadores y perdedores, se realiza los pagos");
@@ -109,8 +114,47 @@ public class VistaProyectoRuleta extends JFrame{
 		 * Start.
 		 */
 		public void start() {
-			timerThread = new Thread(this);
+			Thread timerThread = new Thread(this);
 			timerThread.start();
 		}
+	}
+
+	private class MouseEvents implements MouseListener{
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			JButton clikeado = (JButton) e.getSource();
+			if(clikeado == startButton){
+				System.out.println("Comenzar juego");
+				setTime(10);
+				RondaNueva ronda = new RondaNueva();
+				ronda.start();
+			}
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
 	}
 }

@@ -1,5 +1,6 @@
 package proyectoRuleta;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -222,11 +223,29 @@ public class PanelTablero extends JPanel {
 	private JButton columna2y3 = new JButton();
 	private JButton columna3 = new JButton("2 a 1");
 
-	public PanelTablero() {
-		this.setBackground(Color.GREEN.darker().darker().darker());
-		MouseEvents eventoMouse = new MouseEvents();
+	private JPanel contenedor = new JPanel(new BorderLayout());
+	private JPanel contenedorNotones = new JPanel();
+	private int total = 500;
+	private JLabel labelTotal = new JLabel("Total:"+total);
 
-		casilla0.setLayout(null);
+
+	public PanelTablero() {
+		//this.setBackground(Color.GREEN.darker().darker().darker());
+		MouseEvents eventoMouse = new MouseEvents();
+		this.setLayout(null);
+		contenedor.setLayout(null);
+		contenedor.setBounds(0, 0, 643, 832);
+		contenedorNotones.setLayout(null);
+		contenedorNotones.setBounds(0, 0, 644, 832);
+		contenedorNotones.setBackground(Color.GREEN.darker().darker().darker());
+		contenedorNotones.setVisible(true);
+
+		Font font = new Font(Font.SERIF, Font.BOLD, 18);
+		labelTotal.setFont(font);
+		labelTotal.setForeground(Color.WHITE);
+		labelTotal.setBounds(475, 20, 150, 50);
+		contenedorNotones.add(labelTotal);
+
 		casilla0.setBounds(230, 20, 240, 45);
 		casilla0.setBackground(Color.GREEN.darker());
 		casilla0.setForeground(Color.YELLOW);
@@ -1102,190 +1121,196 @@ public class PanelTablero extends JPanel {
 		columna3.setName("columna3");
 		columna3.addMouseListener(eventoMouse);
 
-		this.add(casilla0);
-		this.add(casilla1_18);
-		this.add(casilla_par);
-		this.add(casilla_black);
-		this.add(casilla_red);
-		this.add(casilla_impar);
-		this.add(casilla19_36);
-		this.add(primera12na);
-		this.add(docena1y2);
-		this.add(segunda12na);
-		this.add(docena2y3);
-		this.add(tercera12na);
-		this.add(casilla0y1);
-		this.add(casilla0_1_2);
-		this.add(casilla0y2);
-		this.add(casilla0_2_3);
-		this.add(casilla0y3);
 
-		this.add(fila1);
-		this.add(casilla1);
-		this.add(casilla1y2);
-		this.add(casilla2);
-		this.add(casilla2y3);
-		this.add(casilla3);
 
-		this.add(seisena1);
-		this.add(casilla1y4);
-		this.add(casilla1_2_4_5);
-		this.add(casilla2y5);
-		this.add(casilla2_3_5_6);
-		this.add(casilla3y6);
+		contenedorNotones.add(casilla0);
+		contenedorNotones.add(casilla1_18);
+		contenedorNotones.add(casilla_par);
+		contenedorNotones.add(casilla_black);
+		contenedorNotones.add(casilla_red);
+		contenedorNotones.add(casilla_impar);
+		contenedorNotones.add(casilla19_36);
+		contenedorNotones.add(primera12na);
+		contenedorNotones.add(docena1y2);
+		contenedorNotones.add(segunda12na);
+		contenedorNotones.add(docena2y3);
+		contenedorNotones.add(tercera12na);
+		contenedorNotones.add(casilla0y1);
+		contenedorNotones.add(casilla0_1_2);
+		contenedorNotones.add(casilla0y2);
+		contenedorNotones.add(casilla0_2_3);
+		contenedorNotones.add(casilla0y3);
 
-		this.add(fila2);
-		this.add(casilla4);
-		this.add(casilla4y5);
-		this.add(casilla5);
-		this.add(casilla5y6);
-		this.add(casilla6);
+		contenedorNotones.add(fila1);
+		contenedorNotones.add(casilla1);
+		contenedorNotones.add(casilla1y2);
+		contenedorNotones.add(casilla2);
+		contenedorNotones.add(casilla2y3);
+		contenedorNotones.add(casilla3);
 
-		this.add(seisena2);
-		this.add(casilla4y7);
-		this.add(casilla4_5_7_8);
-		this.add(casilla5y8);
-		this.add(casilla5_6_8_9);
-		this.add(casilla6y9);
+		contenedorNotones.add(seisena1);
+		contenedorNotones.add(casilla1y4);
+		contenedorNotones.add(casilla1_2_4_5);
+		contenedorNotones.add(casilla2y5);
+		contenedorNotones.add(casilla2_3_5_6);
+		contenedorNotones.add(casilla3y6);
 
-		this.add(fila3);
-		this.add(casilla7);
-		this.add(casilla7y8);
-		this.add(casilla8);
-		this.add(casilla8y9);
-		this.add(casilla9);
+		contenedorNotones.add(fila2);
+		contenedorNotones.add(casilla4);
+		contenedorNotones.add(casilla4y5);
+		contenedorNotones.add(casilla5);
+		contenedorNotones.add(casilla5y6);
+		contenedorNotones.add(casilla6);
 
-		this.add(seisena3);
-		this.add(casilla7y10);
-		this.add(casilla7_8_10_11);
-		this.add(casilla8y11);
-		this.add(casilla8_9_11_12);
-		this.add(casilla9y12);
+		contenedorNotones.add(seisena2);
+		contenedorNotones.add(casilla4y7);
+		contenedorNotones.add(casilla4_5_7_8);
+		contenedorNotones.add(casilla5y8);
+		contenedorNotones.add(casilla5_6_8_9);
+		contenedorNotones.add(casilla6y9);
 
-		this.add(fila4);
-		this.add(casilla10);
-		this.add(casilla10y11);
-		this.add(casilla11);
-		this.add(casilla11y12);
-		this.add(casilla12);
+		contenedorNotones.add(fila3);
+		contenedorNotones.add(casilla7);
+		contenedorNotones.add(casilla7y8);
+		contenedorNotones.add(casilla8);
+		contenedorNotones.add(casilla8y9);
+		contenedorNotones.add(casilla9);
 
-		this.add(seisena4);
-		this.add(casilla10y13);
-		this.add(casilla10_11_13_14);
-		this.add(casilla11y14);
-		this.add(casilla11_12_14_15);
-		this.add(casilla12y15);
+		contenedorNotones.add(seisena3);
+		contenedorNotones.add(casilla7y10);
+		contenedorNotones.add(casilla7_8_10_11);
+		contenedorNotones.add(casilla8y11);
+		contenedorNotones.add(casilla8_9_11_12);
+		contenedorNotones.add(casilla9y12);
+
+		contenedorNotones.add(fila4);
+		contenedorNotones.add(casilla10);
+		contenedorNotones.add(casilla10y11);
+		contenedorNotones.add(casilla11);
+		contenedorNotones.add(casilla11y12);
+		contenedorNotones.add(casilla12);
+
+		contenedorNotones.add(seisena4);
+		contenedorNotones.add(casilla10y13);
+		contenedorNotones.add(casilla10_11_13_14);
+		contenedorNotones.add(casilla11y14);
+		contenedorNotones.add(casilla11_12_14_15);
+		contenedorNotones.add(casilla12y15);
 		////////////////////////////////////
-		this.add(fila5);
-		this.add(casilla13);
-		this.add(casilla13y14);
-		this.add(casilla14);
-		this.add(casilla14y15);
-		this.add(casilla15);
+		contenedorNotones.add(fila5);
+		contenedorNotones.add(casilla13);
+		contenedorNotones.add(casilla13y14);
+		contenedorNotones.add(casilla14);
+		contenedorNotones.add(casilla14y15);
+		contenedorNotones.add(casilla15);
 
-		this.add(seisena5);
-		this.add(casilla13y16);
-		this.add(casilla13_14_16_17);
-		this.add(casilla14y17);
-		this.add(casilla14_15_17_18);
-		this.add(casilla15y18);
+		contenedorNotones.add(seisena5);
+		contenedorNotones.add(casilla13y16);
+		contenedorNotones.add(casilla13_14_16_17);
+		contenedorNotones.add(casilla14y17);
+		contenedorNotones.add(casilla14_15_17_18);
+		contenedorNotones.add(casilla15y18);
 
-		this.add(fila6);
-		this.add(casilla16);
-		this.add(casilla16y17);
-		this.add(casilla17);
-		this.add(casilla17y18);
-		this.add(casilla18);
+		contenedorNotones.add(fila6);
+		contenedorNotones.add(casilla16);
+		contenedorNotones.add(casilla16y17);
+		contenedorNotones.add(casilla17);
+		contenedorNotones.add(casilla17y18);
+		contenedorNotones.add(casilla18);
 
-		this.add(seisena6);
-		this.add(casilla16y19);
-		this.add(casilla16_17_19_20);
-		this.add(casilla17y20);
-		this.add(casilla17_18_20_21);
-		this.add(casilla18y21);
+		contenedorNotones.add(seisena6);
+		contenedorNotones.add(casilla16y19);
+		contenedorNotones.add(casilla16_17_19_20);
+		contenedorNotones.add(casilla17y20);
+		contenedorNotones.add(casilla17_18_20_21);
+		contenedorNotones.add(casilla18y21);
 
-		this.add(fila7);
-		this.add(casilla19);
-		this.add(casilla19y20);
-		this.add(casilla20);
-		this.add(casilla20y21);
-		this.add(casilla21);
+		contenedorNotones.add(fila7);
+		contenedorNotones.add(casilla19);
+		contenedorNotones.add(casilla19y20);
+		contenedorNotones.add(casilla20);
+		contenedorNotones.add(casilla20y21);
+		contenedorNotones.add(casilla21);
 
-		this.add(seisena7);
-		this.add(casilla19y22);
-		this.add(casilla19_20_22_23);
-		this.add(casilla20y23);
-		this.add(casilla20_21_23_24);
-		this.add(casilla21y24);
+		contenedorNotones.add(seisena7);
+		contenedorNotones.add(casilla19y22);
+		contenedorNotones.add(casilla19_20_22_23);
+		contenedorNotones.add(casilla20y23);
+		contenedorNotones.add(casilla20_21_23_24);
+		contenedorNotones.add(casilla21y24);
 
-		this.add(fila8);
-		this.add(casilla22);
-		this.add(casilla22y23);
-		this.add(casilla23);
-		this.add(casilla23y24);
-		this.add(casilla24);
+		contenedorNotones.add(fila8);
+		contenedorNotones.add(casilla22);
+		contenedorNotones.add(casilla22y23);
+		contenedorNotones.add(casilla23);
+		contenedorNotones.add(casilla23y24);
+		contenedorNotones.add(casilla24);
 
-		this.add(seisena8);
-		this.add(casilla22y25);
-		this.add(casilla22_23_25_26);
-		this.add(casilla23y26);
-		this.add(casilla23_24_26_27);
-		this.add(casilla24y27);
+		contenedorNotones.add(seisena8);
+		contenedorNotones.add(casilla22y25);
+		contenedorNotones.add(casilla22_23_25_26);
+		contenedorNotones.add(casilla23y26);
+		contenedorNotones.add(casilla23_24_26_27);
+		contenedorNotones.add(casilla24y27);
 
-		this.add(fila9);
-		this.add(casilla25);
-		this.add(casilla25y26);
-		this.add(casilla26);
-		this.add(casilla26y27);
-		this.add(casilla27);
+		contenedorNotones.add(fila9);
+		contenedorNotones.add(casilla25);
+		contenedorNotones.add(casilla25y26);
+		contenedorNotones.add(casilla26);
+		contenedorNotones.add(casilla26y27);
+		contenedorNotones.add(casilla27);
 
-		this.add(seisena9);
-		this.add(casilla25y28);
-		this.add(casilla25_26_28_29);
-		this.add(casilla26y29);
-		this.add(casilla26_27_29_30);
-		this.add(casilla27y30);
+		contenedorNotones.add(seisena9);
+		contenedorNotones.add(casilla25y28);
+		contenedorNotones.add(casilla25_26_28_29);
+		contenedorNotones.add(casilla26y29);
+		contenedorNotones.add(casilla26_27_29_30);
+		contenedorNotones.add(casilla27y30);
 
-		this.add(fila10);
-		this.add(casilla28);
-		this.add(casilla28y29);
-		this.add(casilla29);
-		this.add(casilla29y30);
-		this.add(casilla30);
+		contenedorNotones.add(fila10);
+		contenedorNotones.add(casilla28);
+		contenedorNotones.add(casilla28y29);
+		contenedorNotones.add(casilla29);
+		contenedorNotones.add(casilla29y30);
+		contenedorNotones.add(casilla30);
 
-		this.add(seisena10);
-		this.add(casilla28y31);
-		this.add(casilla28_29_31_32);
-		this.add(casilla29y32);
-		this.add(casilla29_30_32_33);
-		this.add(casilla30y33);
+		contenedorNotones.add(seisena10);
+		contenedorNotones.add(casilla28y31);
+		contenedorNotones.add(casilla28_29_31_32);
+		contenedorNotones.add(casilla29y32);
+		contenedorNotones.add(casilla29_30_32_33);
+		contenedorNotones.add(casilla30y33);
 
-		this.add(fila11);
-		this.add(casilla31);
-		this.add(casilla31y32);
-		this.add(casilla32);
-		this.add(casilla32y33);
-		this.add(casilla33);
+		contenedorNotones.add(fila11);
+		contenedorNotones.add(casilla31);
+		contenedorNotones.add(casilla31y32);
+		contenedorNotones.add(casilla32);
+		contenedorNotones.add(casilla32y33);
+		contenedorNotones.add(casilla33);
 
-		this.add(seisena11);
-		this.add(casilla31y34);
-		this.add(casilla31_32_34_35);
-		this.add(casilla32y35);
-		this.add(casilla32_33_35_36);
-		this.add(casilla33y36);
+		contenedorNotones.add(seisena11);
+		contenedorNotones.add(casilla31y34);
+		contenedorNotones.add(casilla31_32_34_35);
+		contenedorNotones.add(casilla32y35);
+		contenedorNotones.add(casilla32_33_35_36);
+		contenedorNotones.add(casilla33y36);
 
-		this.add(fila12);
-		this.add(casilla34);
-		this.add(casilla34y35);
-		this.add(casilla35);
-		this.add(casilla35y36);
-		this.add(casilla36);
+		contenedorNotones.add(fila12);
+		contenedorNotones.add(casilla34);
+		contenedorNotones.add(casilla34y35);
+		contenedorNotones.add(casilla35);
+		contenedorNotones.add(casilla35y36);
+		contenedorNotones.add(casilla36);
 
-		this.add(columna1);
-		this.add(columna1y2);
-		this.add(columna2);
-		this.add(columna2y3);
-		this.add(columna3);
+		contenedorNotones.add(columna1);
+		contenedorNotones.add(columna1y2);
+		contenedorNotones.add(columna2);
+		contenedorNotones.add(columna2y3);
+		contenedorNotones.add(columna3);
+
+		contenedor.add(contenedorNotones);
+
+		this.add(contenedor,null);
 	}
 
 	/**
@@ -2108,6 +2133,180 @@ public class PanelTablero extends JPanel {
 		return apuesta35X1;
 	}
 
+	/**
+	*Restablece los colores de los botones
+	*/
+	public void resetColors(){
+		casilla0.setBackground(Color.GREEN.darker());
+		casilla1_18.setBackground(Color.GREEN.darker());
+		casilla_par.setBackground(Color.GREEN.darker());
+		casilla_black.setBackground(Color.black);
+		casilla_red.setBackground(Color.red);
+		casilla_impar.setBackground(Color.GREEN.darker());
+		casilla19_36.setBackground(Color.GREEN.darker());
+		primera12na.setBackground(Color.GREEN.darker());
+		docena1y2.setBackground(Color.YELLOW);
+		segunda12na.setBackground(Color.GREEN.darker());
+		docena2y3.setBackground(Color.YELLOW);
+		tercera12na.setBackground(Color.GREEN.darker());
+		casilla0y1.setBackground(Color.YELLOW);
+		casilla0_1_2.setBackground(Color.YELLOW);
+		casilla0y2.setBackground(Color.YELLOW);
+		casilla0_2_3.setBackground(Color.YELLOW);
+		casilla0y3.setBackground(Color.YELLOW);
+		fila1.setBackground(Color.YELLOW);
+		casilla1.setBackground(Color.GREEN.darker());
+		casilla1y2.setBackground(Color.YELLOW);
+		casilla2.setBackground(Color.GREEN.darker());
+		casilla2y3.setBackground(Color.YELLOW);
+		casilla3.setBackground(Color.GREEN.darker());
+		seisena1.setBackground(Color.YELLOW);
+		casilla1y4.setBackground(Color.YELLOW);
+		casilla1_2_4_5.setBackground(Color.YELLOW);
+		casilla2y5.setBackground(Color.YELLOW);
+		casilla2_3_5_6.setBackground(Color.YELLOW);
+		casilla3y6.setBackground(Color.YELLOW);
+		fila2.setBackground(Color.YELLOW);
+		casilla4.setBackground(Color.GREEN.darker());
+		casilla4y5.setBackground(Color.YELLOW);
+		casilla5.setBackground(Color.GREEN.darker());
+		casilla5y6.setBackground(Color.YELLOW);
+		casilla6.setBackground(Color.GREEN.darker());
+		seisena2.setBackground(Color.YELLOW);
+		casilla4y7.setBackground(Color.YELLOW);
+		casilla4_5_7_8.setBackground(Color.YELLOW);
+		casilla5y8.setBackground(Color.YELLOW);
+		casilla5_6_8_9.setBackground(Color.YELLOW);
+		casilla6y9.setBackground(Color.YELLOW);
+		fila3.setBackground(Color.YELLOW);
+		casilla7.setBackground(Color.GREEN.darker());
+		casilla7y8.setBackground(Color.YELLOW);
+		casilla8.setBackground(Color.GREEN.darker());
+		casilla8y9.setBackground(Color.YELLOW);
+		casilla9.setBackground(Color.GREEN.darker());
+		seisena3.setBackground(Color.YELLOW);
+		casilla7y10.setBackground(Color.YELLOW);
+		casilla7_8_10_11.setBackground(Color.YELLOW);
+		casilla8y11.setBackground(Color.YELLOW);
+		casilla8_9_11_12.setBackground(Color.YELLOW);
+		casilla9y12.setBackground(Color.YELLOW);
+		fila4.setBackground(Color.YELLOW);
+		casilla10.setBackground(Color.GREEN.darker());
+		casilla10y11.setBackground(Color.YELLOW);
+		casilla11.setBackground(Color.GREEN.darker());
+		casilla11y12.setBackground(Color.YELLOW);
+		casilla12.setBackground(Color.GREEN.darker());
+		seisena4.setBackground(Color.YELLOW);
+		casilla10y13.setBackground(Color.YELLOW);
+		casilla10_11_13_14.setBackground(Color.YELLOW);
+		casilla11y14.setBackground(Color.YELLOW);
+		casilla11_12_14_15.setBackground(Color.YELLOW);
+		casilla12y15.setBackground(Color.YELLOW);
+		fila5.setBackground(Color.YELLOW);
+		casilla13.setBackground(Color.GREEN.darker());
+		casilla13y14.setBackground(Color.YELLOW);
+		casilla14.setBackground(Color.GREEN.darker());
+		casilla14y15.setBackground(Color.YELLOW);
+		casilla15.setBackground(Color.GREEN.darker());
+		seisena5.setBackground(Color.YELLOW);
+		casilla13y16.setBackground(Color.YELLOW);
+		casilla13_14_16_17.setBackground(Color.YELLOW);
+		casilla14y17.setBackground(Color.YELLOW);
+		casilla14_15_17_18.setBackground(Color.YELLOW);
+		casilla15y18.setBackground(Color.YELLOW);
+		fila6.setBackground(Color.YELLOW);
+		casilla16.setBackground(Color.GREEN.darker());
+		casilla16y17.setBackground(Color.YELLOW);
+		casilla17.setBackground(Color.GREEN.darker());
+		casilla17y18.setBackground(Color.YELLOW);
+		casilla18.setBackground(Color.GREEN.darker());
+		seisena6.setBackground(Color.YELLOW);
+		casilla16y19.setBackground(Color.YELLOW);
+		casilla16_17_19_20.setBackground(Color.YELLOW);
+		casilla17y20.setBackground(Color.YELLOW);
+		casilla17_18_20_21.setBackground(Color.YELLOW);
+		casilla18y21.setBackground(Color.YELLOW);
+		fila7.setBackground(Color.YELLOW);
+		casilla19.setBackground(Color.GREEN.darker());
+		casilla19y20.setBackground(Color.YELLOW);
+		casilla20.setBackground(Color.GREEN.darker());
+		casilla20y21.setBackground(Color.YELLOW);
+		casilla21.setBackground(Color.GREEN.darker());
+		seisena7.setBackground(Color.YELLOW);
+		casilla19y22.setBackground(Color.YELLOW);
+		casilla19_20_22_23.setBackground(Color.YELLOW);
+		casilla20y23.setBackground(Color.YELLOW);
+		casilla20_21_23_24.setBackground(Color.YELLOW);
+		casilla21y24.setBackground(Color.YELLOW);
+		fila8.setBackground(Color.YELLOW);
+		casilla22.setBackground(Color.GREEN.darker());
+		casilla22y23.setBackground(Color.YELLOW);
+		casilla23.setBackground(Color.GREEN.darker());
+		casilla23y24.setBackground(Color.YELLOW);
+		casilla24.setBackground(Color.GREEN.darker());
+		seisena8.setBackground(Color.YELLOW);
+		casilla22y25.setBackground(Color.YELLOW);
+		casilla22_23_25_26.setBackground(Color.YELLOW);
+		casilla23y26.setBackground(Color.YELLOW);
+		casilla23_24_26_27.setBackground(Color.YELLOW);
+		casilla24y27.setBackground(Color.YELLOW);
+		fila9.setBackground(Color.YELLOW);
+		casilla25.setBackground(Color.GREEN.darker());
+		casilla25y26.setBackground(Color.YELLOW);
+		casilla26.setBackground(Color.GREEN.darker());
+		casilla26y27.setBackground(Color.YELLOW);
+		casilla27.setBackground(Color.GREEN.darker());
+		seisena9.setBackground(Color.YELLOW);
+		casilla25y28.setBackground(Color.YELLOW);
+		casilla25_26_28_29.setBackground(Color.YELLOW);
+		casilla26y29.setBackground(Color.YELLOW);
+		casilla26_27_29_30.setBackground(Color.YELLOW);
+		casilla27y30.setBackground(Color.YELLOW);
+		fila10.setBackground(Color.YELLOW);
+		casilla28.setBackground(Color.GREEN.darker());
+		casilla28y29.setBackground(Color.YELLOW);
+		casilla29.setBackground(Color.GREEN.darker());
+		casilla29y30.setBackground(Color.YELLOW);
+		casilla30.setBackground(Color.GREEN.darker());
+		seisena10.setBackground(Color.YELLOW);
+		casilla28y31.setBackground(Color.YELLOW);
+		casilla28_29_31_32.setBackground(Color.YELLOW);
+		casilla29y32.setBackground(Color.YELLOW);
+		casilla29_30_32_33.setBackground(Color.YELLOW);
+		casilla30y33.setBackground(Color.YELLOW);
+		fila11.setBackground(Color.YELLOW);
+		casilla31.setBackground(Color.GREEN.darker());
+		casilla31y32.setBackground(Color.YELLOW);
+		casilla32.setBackground(Color.GREEN.darker());
+		casilla32y33.setBackground(Color.YELLOW);
+		casilla33.setBackground(Color.GREEN.darker());
+		seisena11.setBackground(Color.YELLOW);
+		casilla31y34.setBackground(Color.YELLOW);
+		casilla31_32_34_35.setBackground(Color.YELLOW);
+		casilla32y35.setBackground(Color.YELLOW);
+		casilla32_33_35_36.setBackground(Color.YELLOW);
+		casilla33y36.setBackground(Color.YELLOW);
+		fila12.setBackground(Color.YELLOW);
+		casilla34.setBackground(Color.GREEN.darker());
+		casilla34y35.setBackground(Color.YELLOW);
+		casilla35.setBackground(Color.GREEN.darker());
+		casilla35y36.setBackground(Color.YELLOW);
+		casilla36.setBackground(Color.GREEN.darker());
+		columna1.setBackground(Color.GREEN.darker());
+		columna1y2.setBackground(Color.YELLOW);
+		columna2.setBackground(Color.GREEN.darker());
+		columna2y3.setBackground(Color.YELLOW);
+		columna3.setBackground(Color.GREEN.darker());
+	}
+
+	/**
+	*Permite al control establecer el total, sirve para establecer el total despues de una ronda.
+	*/
+	public void setTotal(int total){
+		this.total+=total;
+		labelTotal.setText("Total:"+this.total);
+	}
+
 	private class MouseEvents implements MouseListener{
 
 		@Override
@@ -2117,173 +2316,177 @@ public class PanelTablero extends JPanel {
 			String button = clickeado.getName();
 			System.out.println(clickeado.getName());
 
-			//Apuestas 1X1
-			if(button == "casilla_par" || button == "casilla_black" || button == "casilla_red" || button == "casilla_impar" || button == "casilla1_18" || button == "casilla19_36"){
-				setApuestas1X1(button);
-			}
+			if(total > 0){
+				total-=50;
+				labelTotal.setText("Total:"+total);
+				clickeado.setBackground(Color.RED);
+				//Apuestas 1X1
+				if(button == "casilla_par" || button == "casilla_black" || button == "casilla_red" || button == "casilla_impar" || button == "casilla1_18" || button == "casilla19_36"){
+					setApuestas1X1(button);
+				}
 
-			//Apuestas 2X1
-			if(button == "primera12na" || button == "segunda12na" || button == "tercera12na" || button == "columna1" || button == "columna2" || button == "columna3"){
-				setApuestas2X1(button);
-			}
+				//Apuestas 2X1
+				if(button == "primera12na" || button == "segunda12na" || button == "tercera12na" || button == "columna1" || button == "columna2" || button == "columna3"){
+					setApuestas2X1(button);
+				}
 
-			//Apuestas 05X1
-			if(button == "docena1y2" || button == "docena2y3" || button == "columna1y2" || button == "columna2y3" ){
-				setApuesta05X1(button);
-			}
+				//Apuestas 05X1
+				if(button == "docena1y2" || button == "docena2y3" || button == "columna1y2" || button == "columna2y3" ){
+					setApuesta05X1(button);
+				}
 
-			//Apuestas 5X1
-			if(button == "seisena1" || button == "seisena2" || button == "seisena3" || button == "seisena4" || button == "seisena5" || button == "seisena6" || button == "seisena7" || button == "seisena8" || button == "seisena9" || button == "seisena10" || button == "seisena11"){
-				setApuesta5X1(button);
-			}
+				//Apuestas 5X1
+				if(button == "seisena1" || button == "seisena2" || button == "seisena3" || button == "seisena4" || button == "seisena5" || button == "seisena6" || button == "seisena7" || button == "seisena8" || button == "seisena9" || button == "seisena10" || button == "seisena11"){
+					setApuesta5X1(button);
+				}
 
-			//Apuesta 8X1
-			if(button == "casilla1_2_4_5" ||
-				 button == "casilla2_3_5_6" ||
-				 button == "casilla4_5_7_8" ||
-				 button == "casilla5_6_8_9" ||
-				 button == "casilla7_8_10_11" ||
-				 button == "casilla8_9_11_12" ||
-				 button == "casilla10_11_13_14" ||
-				 button == "casilla11_12_14_15" ||
-				 button == "casilla13_14_16_17" ||
-				 button == "casilla14_15_17_18" ||
-				 button == "casilla16_17_19_20" ||
-				 button == "casilla17_18_20_21" ||
-				 button == "casilla19_20_22_23" ||
-				 button == "casilla20_21_23_24" ||
-				 button == "casilla22_23_25_26" ||
-				 button == "casilla23_24_26_27" ||
-				 button == "casilla25_26_28_29" ||
-				 button == "casilla26_27_29_30" ||
-				 button == "casilla28_29_31_32" ||
-				 button == "casilla29_30_32_33" ||
-				 button == "casilla31_32_34_35" ||
-				 button == "casilla32_33_35_36"
-				){
-					setApuesta8X1(button);
-			}
+				//Apuesta 8X1
+				if(button == "casilla1_2_4_5" ||
+					 button == "casilla2_3_5_6" ||
+					 button == "casilla4_5_7_8" ||
+					 button == "casilla5_6_8_9" ||
+					 button == "casilla7_8_10_11" ||
+					 button == "casilla8_9_11_12" ||
+					 button == "casilla10_11_13_14" ||
+					 button == "casilla11_12_14_15" ||
+					 button == "casilla13_14_16_17" ||
+					 button == "casilla14_15_17_18" ||
+					 button == "casilla16_17_19_20" ||
+					 button == "casilla17_18_20_21" ||
+					 button == "casilla19_20_22_23" ||
+					 button == "casilla20_21_23_24" ||
+					 button == "casilla22_23_25_26" ||
+					 button == "casilla23_24_26_27" ||
+					 button == "casilla25_26_28_29" ||
+					 button == "casilla26_27_29_30" ||
+					 button == "casilla28_29_31_32" ||
+					 button == "casilla29_30_32_33" ||
+					 button == "casilla31_32_34_35" ||
+					 button == "casilla32_33_35_36"
+					){
+						setApuesta8X1(button);
+				}
 
-			//Apuesta 11X1
-			if(button == "casilla0_1_2" || button == "casilla0_2_3" ||
-			   button == "fila1" || button == "fila2" || button == "fila3" ||
-				 button == "fila4" || button == "fila5" || button == "fila6" ||
-				 button == "fila7" || button == "fila8" || button == "fila9" ||
-				 button == "fila10" || button == "fila11" || button == "fila12"){
-				setApuesta11X1(button);
-			}
+				//Apuesta 11X1
+				if(button == "casilla0_1_2" || button == "casilla0_2_3" ||
+				   button == "fila1" || button == "fila2" || button == "fila3" ||
+					 button == "fila4" || button == "fila5" || button == "fila6" ||
+					 button == "fila7" || button == "fila8" || button == "fila9" ||
+					 button == "fila10" || button == "fila11" || button == "fila12"){
+					setApuesta11X1(button);
+				}
 
-			//Apuesta 17X1
-			if(
-				button == "casilla1y2" ||
-				button == "casilla2y3" ||
-				button == "casilla0y3" ||
-				button == "casilla0y2" ||
-				button == "casilla0y1" ||
-				button == "casilla1y4" ||
-				button == "casilla2y5" ||
-				button == "casilla3y6" ||
-				button == "casilla4y5" ||
-				button == "casilla5y6" ||
-				button == "casilla6y9" ||
-				button == "casilla5y8" ||
-				button == "casilla4y7" ||
-				button == "casilla7y8" ||
-				button == "casilla8y9" ||
-				button == "casilla9y12" ||
-				button == "casilla8y11" ||
-				button == "casilla7y10" ||
-				button == "casilla10y13" ||
-				button == "casilla10y11" ||
-				button == "casilla11y12" ||
-				button == "casilla11y14" ||
-				button == "casilla12y15" ||
-				button == "casilla14y15" ||
-				button == "casilla13y14" ||
-				button == "casilla13y16" ||
-				button == "casilla14y17" ||
-				button == "casilla15y18" ||
-				button == "casilla17y18" ||
-				button == "casilla16y17" ||
-				button == "casilla16y19" ||
-				button == "casilla17y20" ||
-				button == "casilla18y21" ||
-				button == "casilla20y21" ||
-				button == "casilla19y20" ||
-				button == "casilla19y22" ||
-				button == "casilla20y23" ||
-				button == "casilla21y24" ||
-				button == "casilla23y24" ||
-				button == "casilla22y23" ||
-				button == "casilla22y25" ||
-				button == "casilla23y26" ||
-				button == "casilla24y27" ||
-				button == "casilla26y27" ||
-				button == "casilla25y26" ||
-				button == "casilla25y28" ||
-				button == "casilla26y29" ||
-				button == "casilla27y30" ||
-				button == "casilla29y30" ||
-				button == "casilla28y29" ||
-				button == "casilla28y31" ||
-				button == "casilla29y32" ||
-				button == "casilla30y33" ||
-				button == "casilla32y33" ||
-				button == "casilla31y32" ||
-				button == "casilla31y34" ||
-				button == "casilla32y35" ||
-				button == "casilla33y36" ||
-				button == "casilla35y36" ||
-				button == "casilla34y35"){
-					 setApuesta17X1(button);
-			}
+				//Apuesta 17X1
+				if(
+					button == "casilla1y2" ||
+					button == "casilla2y3" ||
+					button == "casilla0y3" ||
+					button == "casilla0y2" ||
+					button == "casilla0y1" ||
+					button == "casilla1y4" ||
+					button == "casilla2y5" ||
+					button == "casilla3y6" ||
+					button == "casilla4y5" ||
+					button == "casilla5y6" ||
+					button == "casilla6y9" ||
+					button == "casilla5y8" ||
+					button == "casilla4y7" ||
+					button == "casilla7y8" ||
+					button == "casilla8y9" ||
+					button == "casilla9y12" ||
+					button == "casilla8y11" ||
+					button == "casilla7y10" ||
+					button == "casilla10y13" ||
+					button == "casilla10y11" ||
+					button == "casilla11y12" ||
+					button == "casilla11y14" ||
+					button == "casilla12y15" ||
+					button == "casilla14y15" ||
+					button == "casilla13y14" ||
+					button == "casilla13y16" ||
+					button == "casilla14y17" ||
+					button == "casilla15y18" ||
+					button == "casilla17y18" ||
+					button == "casilla16y17" ||
+					button == "casilla16y19" ||
+					button == "casilla17y20" ||
+					button == "casilla18y21" ||
+					button == "casilla20y21" ||
+					button == "casilla19y20" ||
+					button == "casilla19y22" ||
+					button == "casilla20y23" ||
+					button == "casilla21y24" ||
+					button == "casilla23y24" ||
+					button == "casilla22y23" ||
+					button == "casilla22y25" ||
+					button == "casilla23y26" ||
+					button == "casilla24y27" ||
+					button == "casilla26y27" ||
+					button == "casilla25y26" ||
+					button == "casilla25y28" ||
+					button == "casilla26y29" ||
+					button == "casilla27y30" ||
+					button == "casilla29y30" ||
+					button == "casilla28y29" ||
+					button == "casilla28y31" ||
+					button == "casilla29y32" ||
+					button == "casilla30y33" ||
+					button == "casilla32y33" ||
+					button == "casilla31y32" ||
+					button == "casilla31y34" ||
+					button == "casilla32y35" ||
+					button == "casilla33y36" ||
+					button == "casilla35y36" ||
+					button == "casilla34y35"){
+						 setApuesta17X1(button);
+				}
 
-			//Apuesta 35X1
-			if(button == "casilla1" ||
-				 button == "casilla2" ||
-				 button == "casilla3" ||
-				 button == "casilla4" ||
-				 button == "casilla5" ||
-				 button == "casilla6" ||
-				 button == "casilla7" ||
-				 button == "casilla8" ||
-				 button == "casilla9" ||
-				 button == "casilla10" ||
-				 button == "casilla11" ||
-				 button == "casilla12" ||
-				 button == "casilla12" ||
-				 button == "casilla13" ||
-				 button == "casilla14" ||
-				 button == "casilla15" ||
-				 button == "casilla16" ||
-				 button == "casilla17" ||
-				 button == "casilla18" ||
-				 button == "casilla19" ||
-				 button == "casilla20" ||
-				 button == "casilla21" ||
-				 button == "casilla22" ||
-				 button == "casilla23" ||
-				 button == "casilla24" ||
-				 button == "casilla25" ||
-				 button == "casilla26" ||
-				 button == "casilla27" ||
-				 button == "casilla28" ||
-				 button == "casilla29" ||
-				 button == "casilla30" ||
-				 button == "casilla31" ||
-				 button == "casilla32" ||
-				 button == "casilla33" ||
-				 button == "casilla34" ||
-				 button == "casilla35" ||
-				 button == "casilla36"){
-					 setApuesta35X1(button);
+				//Apuesta 35X1
+				if(button == "casilla1" ||
+					 button == "casilla2" ||
+					 button == "casilla3" ||
+					 button == "casilla4" ||
+					 button == "casilla5" ||
+					 button == "casilla6" ||
+					 button == "casilla7" ||
+					 button == "casilla8" ||
+					 button == "casilla9" ||
+					 button == "casilla10" ||
+					 button == "casilla11" ||
+					 button == "casilla12" ||
+					 button == "casilla12" ||
+					 button == "casilla13" ||
+					 button == "casilla14" ||
+					 button == "casilla15" ||
+					 button == "casilla16" ||
+					 button == "casilla17" ||
+					 button == "casilla18" ||
+					 button == "casilla19" ||
+					 button == "casilla20" ||
+					 button == "casilla21" ||
+					 button == "casilla22" ||
+					 button == "casilla23" ||
+					 button == "casilla24" ||
+					 button == "casilla25" ||
+					 button == "casilla26" ||
+					 button == "casilla27" ||
+					 button == "casilla28" ||
+					 button == "casilla29" ||
+					 button == "casilla30" ||
+					 button == "casilla31" ||
+					 button == "casilla32" ||
+					 button == "casilla33" ||
+					 button == "casilla34" ||
+					 button == "casilla35" ||
+					 button == "casilla36"){
+						 setApuesta35X1(button);
+				}
 			}
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
-
 		}
 
 		@Override

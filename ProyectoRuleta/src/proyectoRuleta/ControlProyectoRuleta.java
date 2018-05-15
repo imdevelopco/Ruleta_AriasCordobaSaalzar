@@ -12,7 +12,7 @@ public class ControlProyectoRuleta {
 	private ArrayList<Jugador> jugadores = new ArrayList();
 
 	/** Array con las apuestas del tablero (en esta primera entrega solo es un jugador, entonces las apuestas se guardara aca.
-	 * cuando se manejen mÃ¡s jugadores, cada uno guardara sus propias apuestas realizadas) */
+	 * cuando se manejen más jugadores, cada uno guardara sus propias apuestas realizadas) */
 	private ArrayList<Integer> apuesta1X1 = new ArrayList();
 	private ArrayList<Integer> apuesta2X1 = new ArrayList();
 	private ArrayList<Integer> apuesta05X1 = new ArrayList();
@@ -59,7 +59,9 @@ public class ControlProyectoRuleta {
               try {
                 	sleep(5000);
 									System.out.println("[debug] Control: numero ganador= "+ruleta.getNumeroGanador());
-									calcularGanancia(ruleta.getNumeroGanador());
+									int ganancia = calcularGanancia(ruleta.getNumeroGanador());
+									tablero.resetColors(); //limpiar las casillas en las que se apostaron
+									tablero.setTotal(ganancia);
             	}catch (InterruptedException ex){
             		ex.printStackTrace();
             	}
@@ -71,9 +73,9 @@ public class ControlProyectoRuleta {
 	/**
 		* Verifica cuales apuestas resultaron ganadoras y realiza los pagos
 		*/
-	private void calcularGanancia(int resultadoRuleta){
+	private int calcularGanancia(int resultadoRuleta){
 		int ganancia = 0; //acumulador de ganacias
-		//verificamos si le aposto al nÃºmero que arrojo la ruleta
+		//verificamos si le aposto al número que arrojo la ruleta
 		for(int i = 0; i < apuesta1X1.size(); i++){
       if(resultadoRuleta == apuesta1X1.get(i) ){
 				ganancia+=(50+50);
@@ -132,6 +134,7 @@ public class ControlProyectoRuleta {
 
 		System.out.println("[debug] Control: Ganancia = "+ganancia);
 		this.totalRonda = ganancia;
+		return ganancia;
 	}
 
 	/**

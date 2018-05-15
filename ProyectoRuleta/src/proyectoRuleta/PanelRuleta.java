@@ -23,12 +23,8 @@ public class PanelRuleta extends JPanel {
 	int[] arr = {0,9,20,29,39,49,59,69,79,88,98,107,117,127,147,
 			156,166,176,185,195,205,215,223,233,243,253,263,
 			273,283,293,303,313,322,332,341,351};
-
-	int [] casillas = {	0,26,3,35,12,28,7,29,18,22,9,3,14,20,33,16,
-			24,5,10,23,8,30,11,36,13,27,6,34,17,25,2,21,4,19,15,32};
-	private Timer tempo;
-	private boolean ruletaGirando;
 	/*
+	 * posiciones de los angulos
 	 * i=0 casilla 0
 	 * i=9 casilla 26
 	 * i=20 casilla 3
@@ -66,36 +62,60 @@ public class PanelRuleta extends JPanel {
 	 * i =  341 casilla 15
 	 * i =  351 casilla 32
 	 */
+	/** Posicion de casillas (en el mismo orden del arreglo arr)*/
+	
+	int [] casillas = {	0,26,3,35,12,28,7,29,18,22,9,3,14,20,33,16,
+			24,5,10,23,8,30,11,36,13,27,6,34,17,25,2,21,4,19,15,32};
+	/** Atributo que se toma como el estado de la ruleta*/
+	private boolean ruletaGirando;
 
-	//variable que aloja el angulo que esta en el arreglo arr
+
+	/** variable que aloja el angulo que esta en el arreglo arr*/
 	private int posicionFinal=0;
-	// variable que aloja el la posicion en el arreglo casillas
+	/** variable que aloja el la posicion en el arreglo casillas*/
 	private int posPausa=0;
-	//Variable que aloja el numero ganador internamente
+	/** Variable que aloja el numero ganador internamente*/
 	private int casillaGanadora=0;
 
-	//Numero ganador, este es el que se le entrega al control
+	/**Numero ganador, este es el que se le entrega al control*/
 	private int numeroGanador= 0;
 
-	//iterador que ira aumentando para facilitar el repaint de la img.
+	/** iterador que ira aumentando para facilitar el repaint de la img.*/
 	private int iteradorImagen=0;
-
+	/** Atributo que se toma como temporizzador*/
 	private int timeRuleta = 400;
+	/** Hilo encargado de ejecutar la ruleta*/
 	private Thread timerThread;
+	/** instancia tipo Runnable, inicia el hilo de la ruleta*/
+	private RondaNueva ronda = new RondaNueva();
 
+	/**
+	 * Metodo que  recorre el arreglo arr(el que contiene los angulos
+	 * en los que se debe posicionar la imagen para que la
+	 * flecha quede en el centro de la casilla)
+	 * */
 	public int posiciones(int iterador) {
 
 			posicionFinal=arr[iterador%arr.length];
 
 			return posicionFinal;
 		}
+	/**
+	 * asigna el valor del arreglo casillas a la variable casillaGanadora
+	 * y asi se puede saber en que casilla se detuvo la ruleta
+	 * 
+	 * */
 
 	public void setCasillaGanadora(int n) {
-
 			casillaGanadora = casillas[n];
+		
 	}
 
-
+/**
+ * Se utiliza uba excepcion para cargar la imagen, el metodo retorna el biufer
+ * que se setea dentro de este (se carga la imagen)
+ * 
+ */
 	BufferedImage cargarImagen(String ruta) {
 		BufferedImage img =null;
 		try {
@@ -105,13 +125,9 @@ public class PanelRuleta extends JPanel {
 		}
 		return img;
 	}
-
-	public int getPosicionFinal() {
-		return posicionFinal;
-		}
-	public void setPosicionFinal(int n) {
-		posicionFinal=n;
-	}
+	/** 
+	 * devuelve la posicion en la que se paro la ruleta
+	 * */
 	public int getPosicionPausa() {
 		return posPausa;
 		}
@@ -132,11 +148,21 @@ public class PanelRuleta extends JPanel {
 	public int getNumeroGanador(){
 		return numeroGanador;
 	}
-
+	
+	/** cambia el estado de la ruleta (si esta girando o no)*/
 	public void setRuletaGirando(boolean booleano) {
 		ruletaGirando=booleano;
 	}
+	
+	/** Cambia el valor del atributo, el que se toma como temporizador*/
+	public void setTimeRuleta(int time){
+		this.timeRuleta = time;
+	}
 
+	/**
+	 * Pinta los componentes en el JPanel
+	 * 
+	 * */
 	public void paintComponent(Graphics g) {
 
 		// se cargan las imagenes
@@ -149,8 +175,6 @@ public class PanelRuleta extends JPanel {
 		//el metodo posiciones devuelve el entero (angulo) en la posicion iteradorimagen ,
 
 		at.rotate(Math.toRadians(posiciones(iteradorImagen++)),ruleta.getWidth()/2,ruleta.getHeight()/2);
-		this.posPausa=iteradorImagen%arr.length;
-		this.casillaGanadora= casillas[posPausa];
 		Graphics2D ruleta2D=(Graphics2D) g;
 
 		ruleta2D.setColor(Color.GREEN.darker().darker().darker());
@@ -159,17 +183,16 @@ public class PanelRuleta extends JPanel {
 
 		ruleta2D.drawImage(ruleta, at, null);
 		ruleta2D.drawImage(flecha, 275, 85,50,50,this);
-
-		// este metodo propio de la clase graphics2D es el que refresca el panel y
-		//"hace girar la imagen"(repaint)
 		if(ruletaGirando==true) {
 
 		}
 	}
-
+	
+	/** 
+	 * metodo que empieza el hilo (Jugabilidad de la ruleta)
+	 * */
 	public void girarRuleta(){
 		System.out.println("Entre a girarRuleta");
-		RondaNueva ronda = new RondaNueva();
 		ronda.start();
 	}
 
@@ -189,6 +212,8 @@ public class PanelRuleta extends JPanel {
 					Thread.sleep(10);
 					setRuletaGirando(false);
 				}
+				posPausa=iteradorImagen%arr.length;
+				casillaGanadora= casillas[posPausa];
 				System.out.println(getPosicionPausa()+"++");
 				System.out.println(getCasillaGanadora());
 				numeroGanador = getCasillaGanadora();
@@ -199,6 +224,7 @@ public class PanelRuleta extends JPanel {
 		}
 
 		public void start() {
+			setTimeRuleta(400);
 			timerThread = new Thread(this);
 			timerThread.start();
 		}
