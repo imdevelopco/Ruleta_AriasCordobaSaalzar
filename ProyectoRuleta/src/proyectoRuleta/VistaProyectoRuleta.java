@@ -125,11 +125,8 @@ public class VistaProyectoRuleta extends JFrame{
 		public void mouseClicked(MouseEvent e) {
 			JButton clikeado = (JButton) e.getSource();
 			if(clikeado == startButton){
-<<<<<<< HEAD
+
 				System.out.println("Comenzar juego");
-=======
-				System.out.println("COmenzar juego");
->>>>>>> 98ccd6a625338541032594b0b2b9bd993d64886b
 				setTime(10);
 				RondaNueva ronda = new RondaNueva();
 				ronda.start();
@@ -161,8 +158,4 @@ public class VistaProyectoRuleta extends JFrame{
 		}
 
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 98ccd6a625338541032594b0b2b9bd993d64886b

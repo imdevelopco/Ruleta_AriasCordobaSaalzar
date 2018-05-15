@@ -86,10 +86,9 @@ public class PanelRuleta extends JPanel {
 	private int timeRuleta = 400;
 	/** Hilo encargado de ejecutar la ruleta*/
 	private Thread timerThread;
-<<<<<<< HEAD
+
 	/** instancia tipo Runnable, inicia el hilo de la ruleta*/
-=======
->>>>>>> 98ccd6a625338541032594b0b2b9bd993d64886b
+
 	private RondaNueva ronda = new RondaNueva();
 
 	/**
@@ -162,17 +161,10 @@ public class PanelRuleta extends JPanel {
 		this.timeRuleta = time;
 	}
 
-<<<<<<< HEAD
 	/**
 	 * Pinta los componentes en el JPanel
 	 * 
 	 * */
-=======
-	public void setTimeRuleta(int time){
-		this.timeRuleta = time;
-	}
-
->>>>>>> 98ccd6a625338541032594b0b2b9bd993d64886b
 	public void paintComponent(Graphics g) {
 
 		// se cargan las imagenes
