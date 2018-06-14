@@ -20,9 +20,7 @@ import javax.swing.JPanel;
 
 public class PanelRuleta extends JPanel {
 	// Arreglo de posiciones de las 37 casillas (angulos en los que se debe girar la imagen)
-	int[] arr = {0,9,20,29,39,49,59,69,79,88,98,107,117,127,147,
-			156,166,176,185,195,205,215,223,233,243,253,263,
-			273,283,293,303,313,322,332,341,351};
+	int[] arr = {0,9,20,29,39,49,59,69,79,88,98,107,117,127,147,156,166,176,185,195,205,215,223,233,243,253,263,273,283,293,303,313,322,332,341,351};
 	/*
 	 * posiciones de los angulos
 	 * i=0 casilla 0
@@ -62,18 +60,20 @@ public class PanelRuleta extends JPanel {
 	 * i =  341 casilla 15
 	 * i =  351 casilla 32
 	 */
+
 	/** Posicion de casillas (en el mismo orden del arreglo arr)*/
-	
-	int [] casillas = {	0,26,3,35,12,28,7,29,18,22,9,3,14,20,33,16,
-			24,5,10,23,8,30,11,36,13,27,6,34,17,25,2,21,4,19,15,32};
+	int [] casillas = {	0,26,3,35,12,28,7,29,18,22,9,3,14,20,33,16,24,5,10,23,8,30,11,36,13,27,6,34,17,25,2,21,4,19,15,32};
+
 	/** Atributo que se toma como el estado de la ruleta*/
 	private boolean ruletaGirando;
 
 
 	/** variable que aloja el angulo que esta en el arreglo arr*/
 	private int posicionFinal=0;
+
 	/** variable que aloja el la posicion en el arreglo casillas*/
 	private int posPausa=0;
+
 	/** Variable que aloja el numero ganador internamente*/
 	private int casillaGanadora=0;
 
@@ -82,6 +82,7 @@ public class PanelRuleta extends JPanel {
 
 	/** iterador que ira aumentando para facilitar el repaint de la img.*/
 	private int iteradorImagen=0;
+
 	/** Atributo que se toma como temporizzador*/
 	private int timeRuleta = 400;
 	/** Hilo encargado de ejecutar la ruleta*/
@@ -97,29 +98,32 @@ public class PanelRuleta extends JPanel {
 	 * flecha quede en el centro de la casilla)
 	 * */
 	public int posiciones(int iterador) {
+			System.out.println("[debug] iterador: "+iterador);
+			System.out.println("[debug] arr.length: "+arr.length);
+			System.out.println("[debug] iterador%arr.length: "+iterador%arr.length);
+		  System.out.println("[debug] arr[iterador%arr.length]: "+arr[iterador%arr.length]);
+			System.out.println("[debug] ###########################################################");
 
-			posicionFinal=arr[iterador%arr.length];
-
+			posicionFinal = arr[iterador%arr.length];
 			return posicionFinal;
-		}
+	}
+
 	/**
 	 * asigna el valor del arreglo casillas a la variable casillaGanadora
 	 * y asi se puede saber en que casilla se detuvo la ruleta
-	 * 
+	 *
 	 * */
-
 	public void setCasillaGanadora(int n) {
 			casillaGanadora = casillas[n];
-		
 	}
 
 /**
  * Se utiliza uba excepcion para cargar la imagen, el metodo retorna el biufer
  * que se setea dentro de este (se carga la imagen)
- * 
+ *
  */
 	BufferedImage cargarImagen(String ruta) {
-		BufferedImage img =null;
+		BufferedImage img = null;
 		try {
 			img = ImageIO.read(new File(ruta));
 		}catch(IOException e) {
@@ -127,14 +131,16 @@ public class PanelRuleta extends JPanel {
 		}
 		return img;
 	}
-	/** 
+
+	/**
 	 * devuelve la posicion en la que se paro la ruleta
 	 * */
 	public int getPosicionPausa() {
 		return posPausa;
-		}
+	}
+
 	public void setPosicionPausa(int n) {
-		posPausa=n;
+		posPausa = n;
 	}
 
 	/**
@@ -150,12 +156,12 @@ public class PanelRuleta extends JPanel {
 	public int getNumeroGanador(){
 		return numeroGanador;
 	}
-	
+
 	/** cambia el estado de la ruleta (si esta girando o no)*/
 	public void setRuletaGirando(boolean booleano) {
-		ruletaGirando=booleano;
+		ruletaGirando = booleano;
 	}
-	
+
 	/** Cambia el valor del atributo, el que se toma como temporizador*/
 	public void setTimeRuleta(int time){
 		this.timeRuleta = time;
@@ -163,7 +169,7 @@ public class PanelRuleta extends JPanel {
 
 	/**
 	 * Pinta los componentes en el JPanel
-	 * 
+	 *
 	 * */
 	public void paintComponent(Graphics g) {
 
@@ -175,9 +181,10 @@ public class PanelRuleta extends JPanel {
 		AffineTransform at = AffineTransform.getTranslateInstance(50, 50);
 
 		//el metodo posiciones devuelve el entero (angulo) en la posicion iteradorimagen ,
+	
 
-		at.rotate(Math.toRadians(posiciones(iteradorImagen++)),ruleta.getWidth()/2,ruleta.getHeight()/2);
-		Graphics2D ruleta2D=(Graphics2D) g;
+		at.rotate(Math.toRadians(posiciones(iteradorImagen)),ruleta.getWidth()/2,ruleta.getHeight()/2);
+		Graphics2D ruleta2D = (Graphics2D) g;
 
 		ruleta2D.setColor(Color.GREEN.darker().darker().darker());
 
@@ -185,12 +192,9 @@ public class PanelRuleta extends JPanel {
 
 		ruleta2D.drawImage(ruleta, at, null);
 		ruleta2D.drawImage(flecha, 275, 85,50,50,this);
-		if(ruletaGirando==true) {
-
-		}
 	}
-	
-	/** 
+
+	/**
 	 * metodo que empieza el hilo (Jugabilidad de la ruleta)
 	 * */
 	public void girarRuleta(){
@@ -210,14 +214,19 @@ public class PanelRuleta extends JPanel {
 				System.out.println("comienza a girar la ruleta en PanelRuleta");
 				while(timeRuleta>0){
 					timeRuleta-=1;
+					iteradorImagen = iteradorImagen+1;
+					System.out.println("[debug] repaint()");
 					repaint();
 					Thread.sleep(10);
 					setRuletaGirando(false);
 				}
-				posPausa=iteradorImagen%arr.length;
-				casillaGanadora= casillas[posPausa];
+				//Thread.sleep(1000);
+				posPausa = iteradorImagen%arr.length;
+				casillaGanadora = casillas[posPausa];
+
 				System.out.println(getPosicionPausa()+"++");
-				System.out.println(getCasillaGanadora());
+				System.out.println("grados: "+posicionFinal);
+				System.out.println("casilla ganadora: "+getCasillaGanadora());
 				numeroGanador = getCasillaGanadora();
 				System.out.println(getPosicionPausa()+"++");
 			}catch(InterruptedException e) {
