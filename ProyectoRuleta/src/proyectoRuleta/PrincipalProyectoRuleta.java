@@ -22,7 +22,13 @@ public class PrincipalProyectoRuleta {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		VistaProyectoRuleta v = new VistaProyectoRuleta();
+		VistaProyectoRuleta v;
+		if ( args.length == 0 ){
+			v = new VistaProyectoRuleta("127.0.0.1"); // localhost
+		}
+		else {
+			v = new VistaProyectoRuleta(args[0]); // usa args
+		}
 		v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//ControlProyectoRuleta comenzar = new ControlProyectoRuleta();
 	}

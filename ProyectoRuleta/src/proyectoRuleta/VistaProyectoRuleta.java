@@ -7,6 +7,11 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.util.Formatter;
+import java.util.Scanner;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -29,8 +34,14 @@ public class VistaProyectoRuleta extends JFrame{
 	/**Hilo para manejar el tiempo de las apuestas */
 	private JButton startButton = new JButton("comenzar");
 
-	public VistaProyectoRuleta(){
+	private Socket conexion; // conexion con el servidor
+	private Scanner entrada; // entrada del servidor
+	private Formatter salida; // salida al servidor
+	private String HOST;
 
+	public VistaProyectoRuleta(String host){
+		HOST = host;
+		iniciarCliente();
 		initGUI();
 		pack();
 
@@ -73,6 +84,22 @@ public class VistaProyectoRuleta extends JFrame{
 
 		display.setText("Comienzan apuestas");
 	}
+
+	// inicia conexion con el servidor y establecer flujos E/S
+	public void iniciarCliente(){
+		// se conecta al servidor, obtiene los flujos e inicia subproceso de salida
+
+		try {
+			conexion = new Socket(InetAddress.getByName( HOST ), 12345 );
+
+			entrada = new Scanner( conexion.getInputStream() );
+			salida = new Formatter( conexion.getOutputStream() );
+		}
+		catch ( IOException excepcionES ){
+			excepcionES.printStackTrace();
+		}
+
+	} // fin del método iniciarCliente
 
 	public void setTime(int time) {
 		this.time = time;

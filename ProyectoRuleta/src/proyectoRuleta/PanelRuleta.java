@@ -181,8 +181,6 @@ public class PanelRuleta extends JPanel {
 		AffineTransform at = AffineTransform.getTranslateInstance(50, 50);
 
 		//el metodo posiciones devuelve el entero (angulo) en la posicion iteradorimagen ,
-	
-
 		at.rotate(Math.toRadians(posiciones(iteradorImagen)),ruleta.getWidth()/2,ruleta.getHeight()/2);
 		Graphics2D ruleta2D = (Graphics2D) g;
 
