@@ -12,7 +12,7 @@ public class ControlProyectoRuleta {
 	private ArrayList<Jugador> jugadores = new ArrayList();
 
 	/** Array con las apuestas del tablero (en esta primera entrega solo es un jugador, entonces las apuestas se guardara aca.
-	 * cuando se manejen más jugadores, cada uno guardara sus propias apuestas realizadas) */
+	 * cuando se manejen mï¿½s jugadores, cada uno guardara sus propias apuestas realizadas) */
 	private ArrayList<Integer> apuesta1X1 = new ArrayList();
 	private ArrayList<Integer> apuesta2X1 = new ArrayList();
 	private ArrayList<Integer> apuesta05X1 = new ArrayList();
@@ -75,7 +75,7 @@ public class ControlProyectoRuleta {
 		*/
 	private int calcularGanancia(int resultadoRuleta){
 		int ganancia = 0; //acumulador de ganacias
-		//verificamos si le aposto al número que arrojo la ruleta
+		//verificamos si le aposto al nï¿½mero que arrojo la ruleta
 		for(int i = 0; i < apuesta1X1.size(); i++){
       if(resultadoRuleta == apuesta1X1.get(i) ){
 				ganancia+=(50+50);

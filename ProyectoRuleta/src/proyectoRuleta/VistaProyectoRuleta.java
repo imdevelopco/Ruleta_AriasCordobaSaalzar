@@ -90,6 +90,7 @@ public class VistaProyectoRuleta extends JFrame{
 		// se conecta al servidor, obtiene los flujos e inicia subproceso de salida
 
 		try {
+			System.out.println("[Cliente] intentar conectarse al servidor...");
 			conexion = new Socket(InetAddress.getByName( HOST ), 12345 );
 
 			entrada = new Scanner( conexion.getInputStream() );
@@ -97,8 +98,12 @@ public class VistaProyectoRuleta extends JFrame{
 		}
 		catch ( IOException excepcionES ){
 			excepcionES.printStackTrace();
+			System.out.println("[Cliente] Error al conectarse al servidor");
 		}
-
+		System.out.println("[Cliente] socket address: "+conexion.getLocalSocketAddress());
+		System.out.println("[Cliente] socket puerto: "+conexion.getPort());
+		System.out.println("[Cliente] socket status: "+conexion.isConnected() );
+		System.out.println("[Cliente] fin de iniciarCliente()");
 	} // fin del método iniciarCliente
 
 	public void setTime(int time) {
