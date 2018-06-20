@@ -29,6 +29,7 @@ public class PrincipalProyectoRuleta {
 		else {
 			v = new VistaProyectoRuleta(args[0]); // usa args
 		}
+		v.execute();
 		v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//ControlProyectoRuleta comenzar = new ControlProyectoRuleta();
 	}

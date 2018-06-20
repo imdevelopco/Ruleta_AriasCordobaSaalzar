@@ -195,9 +195,10 @@ public class PanelRuleta extends JPanel {
 	/**
 	 * metodo que empieza el hilo (Jugabilidad de la ruleta)
 	 * */
-	public void girarRuleta(){
+	public void girarRuleta(int iterador){
 		System.out.println("Entre a girarRuleta");
-		ronda.start();
+		iteradorImagen = iterador;
+		repaint();
 	}
 
 	private class RondaNueva implements Runnable{

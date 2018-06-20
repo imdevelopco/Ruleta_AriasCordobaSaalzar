@@ -38,10 +38,10 @@ public class VistaProyectoRuleta extends JFrame{
 	private Scanner entrada; // entrada del servidor
 	private Formatter salida; // salida al servidor
 	private String HOST;
+	private ConexionServer hiloSocket;
 
 	public VistaProyectoRuleta(String host){
 		HOST = host;
-		iniciarCliente();
 		initGUI();
 		pack();
 
@@ -49,7 +49,6 @@ public class VistaProyectoRuleta extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setVisible(true);
-
 	}
 
 	public void initGUI(){
@@ -85,31 +84,53 @@ public class VistaProyectoRuleta extends JFrame{
 		display.setText("Comienzan apuestas");
 	}
 
-	// inicia conexion con el servidor y establecer flujos E/S
-	public void iniciarCliente(){
-		// se conecta al servidor, obtiene los flujos e inicia subproceso de salida
+	public void execute(){
+		hiloSocket = new ConexionServer();
+		hiloSocket.run();
+	}
 
-		try {
-			System.out.println("[Cliente] intentar conectarse al servidor...");
-			conexion = new Socket(InetAddress.getByName( HOST ), 12345 );
-
-			entrada = new Scanner( conexion.getInputStream() );
-			salida = new Formatter( conexion.getOutputStream() );
-		}
-		catch ( IOException excepcionES ){
-			excepcionES.printStackTrace();
-			System.out.println("[Cliente] Error al conectarse al servidor");
-		}
-		System.out.println("[Cliente] socket address: "+conexion.getLocalSocketAddress());
-		System.out.println("[Cliente] socket puerto: "+conexion.getPort());
-		System.out.println("[Cliente] socket status: "+conexion.isConnected() );
-		System.out.println("[Cliente] fin de iniciarCliente()");
-	} // fin del método iniciarCliente
 
 	public void setTime(int time) {
 		this.time = time;
 	}
 
+
+	private class ConexionServer implements Runnable{
+
+		@Override
+		public void run() {
+			// se conecta al servidor, obtiene los flujos e inicia subproceso de salida
+
+			try {
+				System.out.println("[Cliente] intentar conectarse al servidor...");
+				conexion = new Socket(InetAddress.getByName( HOST ), 12345 );
+
+				entrada = new Scanner( conexion.getInputStream() );
+				salida = new Formatter( conexion.getOutputStream() );
+			}
+			catch ( IOException excepcionES ){
+				excepcionES.printStackTrace();
+				System.out.println("[Cliente] Error al conectarse al servidor");
+			}
+			System.out.println("[Cliente] socket address: "+conexion.getLocalSocketAddress());
+			System.out.println("[Cliente] socket puerto: "+conexion.getPort());
+			System.out.println("[Cliente] socket status: "+conexion.isConnected() );
+
+			while ( true ) {
+				if ( entrada.hasNextLine() )
+			  	handlerMesageServer(entrada.nextLine());
+			} // fin de while
+
+		}
+
+	}
+
+ 	private void handlerMesageServer(String msn){
+		display.setText( "[server] "+msn );
+		if(!msn.equals("Conectado al servidor")){
+				ruleta.girarRuleta( Integer.parseInt(msn) );
+		}
+	}
 	/**
 	 * The Class RondaNueva.
 	 */

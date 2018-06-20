@@ -41,7 +41,7 @@ public class ControlProyectoRuleta {
 	public void controlGirarRuleta(PanelRuleta ruleta, PanelTablero tablero){
 		System.out.println("[debug] Control: entre a controlGirarRuleta");
 		ruleta.setRuletaGirando(true);
-		ruleta.girarRuleta(); //empezar a girar la ruleta
+		//ruleta.girarRuleta(); //empezar a girar la ruleta
 		apuesta1X1 = tablero.getApuesta1X1(); //obtener las apuestas 1x1 que se hizo
 		apuesta2X1 = tablero.getApuesta2X1(); //obtener las apuestas 2X1 que hay en el ytablero
 		apuesta05X1 = tablero.getApuesta05X1(); //obteber apuestas 05X1
